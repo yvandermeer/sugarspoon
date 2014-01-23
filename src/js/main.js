@@ -23,7 +23,7 @@
           if (options.config instanceof TestConfiguration) {
             return options.config;
           }
-          if (_.isFunction(options.config)) {
+          if (_(options.config).isFunction()) {
             TestConfiguration.prototype.configure = options.config;
           }
           return new TestConfiguration;
@@ -43,7 +43,7 @@
         coverageEnabled = coverageSupported && this.settings.get('coverage');
         this.runnerLoaded = new $.Deferred;
         if (coverageEnabled) {
-          coverageFilter = _.isString(options.coverage) ? options.coverage : null;
+          coverageFilter = _(options.coverage).isString() ? options.coverage : null;
           require(['./runners/coverage'], function(CoverageRunner) {
             _this.runner = new CoverageRunner(coverageFilter);
             return _this.runnerLoaded.resolve();

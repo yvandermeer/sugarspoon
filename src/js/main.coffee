@@ -20,9 +20,9 @@ define (require) ->
             @config = do =>
                 return options.config \
                     if options.config instanceof TestConfiguration
-                # Support simple config functions without having to create 
+                # Support simple config functions without having to create
                 # a custom subclass
-                if _.isFunction options.config
+                if _(options.config).isFunction()
                     TestConfiguration::configure = options.config
                 return new TestConfiguration
 
@@ -40,7 +40,7 @@ define (require) ->
 
             @runnerLoaded = new $.Deferred
             if coverageEnabled
-                coverageFilter = if _.isString options.coverage \
+                coverageFilter = if _(options.coverage).isString() \
                         then options.coverage else null
 
                 # Lazy-load the coverage runner to prevent BlanketJS from being
