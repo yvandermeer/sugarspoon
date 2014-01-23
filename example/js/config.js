@@ -11,8 +11,6 @@
         'backbone': "" + vendor + "backbone/backbone",
         'handlebars': "" + vendor + "handlebars/handlebars",
         'jquery': "" + vendor + "jquery/jquery",
-        'hb': "" + vendor + "requirejs-handlebars/hb",
-        'text': "" + vendor + "requirejs-text/text",
         'underscore': "" + vendor + "underscore/underscore",
         'blanket': "" + vendor + "blanket/dist/qunit/blanket",
         'chai': "" + vendor + "chai/chai",

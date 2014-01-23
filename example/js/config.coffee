@@ -12,8 +12,6 @@ require.config
         'backbone': "#{vendor}backbone/backbone"
         'handlebars': "#{vendor}handlebars/handlebars"
         'jquery': "#{vendor}jquery/jquery"
-        'hb': "#{vendor}requirejs-handlebars/hb"
-        'text': "#{vendor}requirejs-text/text"
         'underscore': "#{vendor}underscore/underscore"
 
         # dev
