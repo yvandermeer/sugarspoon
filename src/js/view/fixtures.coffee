@@ -5,7 +5,7 @@ define (require) ->
     Settings = require '../model/settings'
 
 
-    class FixturesContainer extends Backbone.View
+    class Fixtures extends Backbone.View
 
         @get: -> @_instance
 
@@ -19,10 +19,12 @@ define (require) ->
             view?.remove() unless Settings.get().get('showFixtures')
 
         constructor: ->
-            FixturesContainer._instance = @
+            Fixtures._instance = @
             super
 
         initialize: ->
+            if not @$el.length
+                @setElement($('<div id="fixtures">').insertAfter($('#mocha')))
             @listenTo @model, 'change:showMochaReport', ->
                 @renderMochaReport()
             @render()

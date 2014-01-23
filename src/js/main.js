@@ -1,13 +1,13 @@
 (function() {
   define(function(require) {
-    var $, FixturesContainer, MochaTestRunner, SettingsPanel, TestConfiguration, TestSettings, TestWrapper, _;
+    var $, Fixtures, MochaTestRunner, SettingsPanel, TestConfiguration, TestSettings, TestWrapper, _;
     _ = require('underscore');
     $ = require('jquery');
     MochaTestRunner = require('./runners/mocha');
     TestConfiguration = require('./model/configuration');
     TestSettings = require('./model/settings');
     SettingsPanel = require('./view/settingspanel');
-    FixturesContainer = require('./view/fixturescontainer');
+    Fixtures = require('./view/fixtures');
     return TestWrapper = (function() {
       TestWrapper.prototype.views = {};
 
@@ -35,7 +35,7 @@
         this.views.settingsPanel.listenTo(this.settings, 'change:coverage change:showFixtures', function() {
           return window.location.reload();
         });
-        this.views.fixtures = new FixturesContainer({
+        this.views.fixtures = new Fixtures({
           el: '#fixtures',
           model: this.settings
         });

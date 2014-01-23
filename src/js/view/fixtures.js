@@ -3,18 +3,18 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   define(function(require) {
-    var $, Backbone, FixturesContainer, Settings;
+    var $, Backbone, Fixtures, Settings;
     $ = require('jquery');
     Backbone = require('backbone');
     Settings = require('../model/settings');
-    return FixturesContainer = (function(_super) {
-      __extends(FixturesContainer, _super);
+    return Fixtures = (function(_super) {
+      __extends(Fixtures, _super);
 
-      FixturesContainer.get = function() {
+      Fixtures.get = function() {
         return this._instance;
       };
 
-      FixturesContainer.createElement = function() {
+      Fixtures.createElement = function() {
         /*
         Convenience class method
         */
@@ -23,25 +23,28 @@
         return (_ref = this.get()).createElement.apply(_ref, arguments);
       };
 
-      FixturesContainer.removeView = function(view) {
+      Fixtures.removeView = function(view) {
         if (!Settings.get().get('showFixtures')) {
           return view != null ? view.remove() : void 0;
         }
       };
 
-      function FixturesContainer() {
-        FixturesContainer._instance = this;
-        FixturesContainer.__super__.constructor.apply(this, arguments);
+      function Fixtures() {
+        Fixtures._instance = this;
+        Fixtures.__super__.constructor.apply(this, arguments);
       }
 
-      FixturesContainer.prototype.initialize = function() {
+      Fixtures.prototype.initialize = function() {
+        if (!this.$el.length) {
+          this.setElement($('<div id="fixtures">').insertAfter($('#mocha')));
+        }
         this.listenTo(this.model, 'change:showMochaReport', function() {
           return this.renderMochaReport();
         });
         return this.render();
       };
 
-      FixturesContainer.prototype.createElement = function(tagName) {
+      Fixtures.prototype.createElement = function(tagName) {
         if (tagName == null) {
           tagName = 'div';
         }
@@ -52,16 +55,16 @@
         return $("<" + tagName + ">").appendTo(this.$el);
       };
 
-      FixturesContainer.prototype.render = function() {
+      Fixtures.prototype.render = function() {
         $('html').toggleClass('show-fixtures', this.model.get('showFixtures'));
         return this.renderMochaReport();
       };
 
-      FixturesContainer.prototype.renderMochaReport = function() {
+      Fixtures.prototype.renderMochaReport = function() {
         return $('html').toggleClass('hide-mocha-report', !this.model.get('showMochaReport'));
       };
 
-      return FixturesContainer;
+      return Fixtures;
 
     })(Backbone.View);
   });
@@ -69,5 +72,5 @@
 }).call(this);
 
 /*
-//@ sourceMappingURL=fixturescontainer.js.map
+//@ sourceMappingURL=fixtures.js.map
 */

@@ -1,5 +1,6 @@
 tests = [
     'calculator',
+    'someview'
 ]
 
 # Help guarantee the order of suite execution

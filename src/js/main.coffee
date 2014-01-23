@@ -8,7 +8,7 @@ define (require) ->
     TestSettings = require './model/settings'
 
     SettingsPanel = require './view/settingspanel'
-    FixturesContainer = require './view/fixturescontainer'
+    Fixtures = require './view/fixtures'
 
 
     class TestWrapper
@@ -32,7 +32,7 @@ define (require) ->
                     'change:coverage change:showFixtures', ->
                         window.location.reload()
 
-            @views.fixtures = new FixturesContainer el: '#fixtures', \
+            @views.fixtures = new Fixtures el: '#fixtures', \
                     model: @settings
 
             coverageSupported = not window.mochaPhantomJS

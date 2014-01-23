@@ -1,7 +1,7 @@
 (function() {
   var test, tests;
 
-  tests = ['calculator'];
+  tests = ['calculator', 'someview'];
 
   define((function() {
     var _i, _len, _results;
