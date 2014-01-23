@@ -1,0 +1,28 @@
+{
+  "name": "sugarspoon",
+  "version": "0.1.0",
+  "authors": [
+    "Yuri van der Meer"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.0",
+    "handlebars": "~1.0.0",
+    "requirejs": "~2.1.8",
+    "requirejs-handlebars": "~0.0.3",
+    "requirejs-text": "~2.0.10",
+    "underscore": "1.5.2"
+  },
+  "devDependencies": {
+    "blanket": "~1.1.5",
+    "chai": "~1.8.1",
+    "mocha": "1.13"
+  }
+}
