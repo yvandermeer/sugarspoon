@@ -20,11 +20,11 @@ define (require) ->
             # console.log 'Using filter: ', @filter
 
             blanket.options
-                filter: @filter
+                #filter: @filter
                 # branchTracking: true
                 # debug: true
 
             # Things might get slow, especially combined with Squire
-            mocha.timeout(1000 * 6)
+            #mocha.timeout(1000 * 6)
 
             @engine = new MochaBlanketAdapter

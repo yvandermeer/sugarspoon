@@ -4,9 +4,9 @@ define (require) ->
     #sinonChai = require 'sinon-chai'
     #chaiDatetime = require 'chai-datetime'
 
-    TestRunner = require 'sugarspoon'
+    TestRunner = require 'sugarspoon/main'
 
-    BaseTestConfiguration = require 'sugarspoon/model/configuration'
+    #BaseTestConfiguration = require 'sugarspoon/model/configuration'
 
 
     #class TestConfiguration extends BaseTestConfiguration
@@ -20,5 +20,5 @@ define (require) ->
             ##@chai.use(chaiJquery)
             #@chai.use(chaiDatetime)
 
-    runner = new TestRunner coverage: true, config: new TestConfiguration
+    runner = new TestRunner coverage: true #, config: new TestConfiguration
     runner.run('test/main')

@@ -2,26 +2,30 @@ require.config
     paths: do ->
         staticPrefix = if require.isBrowser then window._staticUrl \
                 else "#{process.env.PROJECT_ROOT}/static/"
-        lib = '../lib/'
+        root = '../../'
+        vendor = "#{root}vendor/"
 
-        'requireLib': "#{lib}requirejs/require"
+        'requireLib': "#{vendor}requirejs/require"
 
-        'backbone': "#{lib}backbone/backbone"
-        'handlebars': "#{lib}handlebars/handlebars"
-        'hb': "#{lib}requirejs-handlebars/hb"
-        'text': "#{lib}requirejs-text/text"
-        'underscore': "#{lib}underscore/underscore"
+        'sugarspoon': "#{root}src/js"
+
+        'backbone': "#{vendor}backbone/backbone"
+        'handlebars': "#{vendor}handlebars/handlebars"
+        'jquery': "#{vendor}jquery/jquery"
+        'hb': "#{vendor}requirejs-handlebars/hb"
+        'text': "#{vendor}requirejs-text/text"
+        'underscore': "#{vendor}underscore/underscore"
 
         # dev
-        'blanket': "#{lib}blanket/dist/qunit/blanket"
-        'chai': "#{lib}chai/chai"
-        'mocha': "#{lib}mocha/mocha"
+        'blanket': "#{vendor}blanket/dist/qunit/blanket"
+        'chai': "#{vendor}chai/chai"
+        'mocha': "#{vendor}mocha/mocha"
 
         'template': '../handlebars'
 
     shim:
         'backbone':
-            deps: ['underscore', 'zepto']
+            deps: ['underscore', 'jquery']
             exports: 'Backbone'
         'handlebars':
             exports: 'Handlebars'

@@ -83,7 +83,7 @@ module.exports = (grunt) ->
                     optimize: if optimize then 'uglify2' else 'none'
                     preserveLicenseComments: not optimize
 
-        clean: [dirs.javascriptGenerated]
+        clean: ["#{dirs.javascript}/**/*.{js,js.map}"]
 
     # Based on https://github.com/gruntjs/grunt-contrib-watch#compiling-files-as-needed
     changedFiles = Object.create(null)
