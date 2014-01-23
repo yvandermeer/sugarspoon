@@ -16,5 +16,5 @@ define (require) ->
 
         describe 'subtracting five and two', ->
 
-            it 'equals threen', ->
+            it 'equals three', ->
                 expect(@calculator.subtract(5, 2)).to.equal(3)
