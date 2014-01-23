@@ -2,7 +2,3 @@ vendor
 gems
 node_modules
 .sass-cache
-example/js/**/*.js
-example/js/**/*.js.map
-src/js/**/*.js
-src/js/**/*.js.map
