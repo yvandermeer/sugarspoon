@@ -87,3 +87,9 @@ TODO
 * Allow for more flexible configuration
 * Add support for Jasmine (as alternative to Mocha)
 * Test (and add support if necessary) for non-AMD configuration
+
+
+Credits
+-------
+
+Sugarspoon started as part of the [Goeie Jongens](http://goeiejongens.nl/) HTML5 toolkit.
