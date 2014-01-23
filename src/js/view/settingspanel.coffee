@@ -1,4 +1,5 @@
 define (require) ->
+    _ = require 'underscore'
     $ = require 'jquery'
     Backbone = require 'backbone'
     Handlebars = require 'handlebars'
@@ -31,22 +32,26 @@ define (require) ->
         events:
             'change input[type=checkbox]': (e) ->
                 $el = $(e.currentTarget)
-                @model.set $el.attr('class'), $el.is(':checked')
+                @model.set($el.attr('class'), $el.is(':checked'))
 
         initialize: ->
             @render()
 
         render: ->
-            # console.warn 'SettingsPanel.render()', @model.get('enabled')
             if not @$el.parents('body').length
-                @$el.html template settings: @model.toJSON()
+                @renderTemplate()
                 @$el.appendTo $('body')
             @restoreState()
 
+        renderTemplate: ->
+            context = _(@).result('templateContext')
+            @$el.html(template(context))
+
+        templateContext: ->
+            settings: @model.toJSON()
+
         restoreState: ->
-            # console.warn 'SettingsPanel.restoreState()'
             @$('input').each (i, el) =>
                 $el = $(el)
                 settingsAttribute = $el.attr('class')
                 $el.prop('checked', @model.get(settingsAttribute))
-

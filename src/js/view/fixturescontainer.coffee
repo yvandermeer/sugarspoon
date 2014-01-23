@@ -13,7 +13,7 @@ define (require) ->
             ###
             Convenience class method
             ###
-            @get().createElement arguments...
+            @get().createElement(arguments...)
 
         @removeView: (view) ->
             view?.remove() unless Settings.get().get('showFixtures')
@@ -23,7 +23,8 @@ define (require) ->
             super
 
         initialize: ->
-            @listenTo @model, 'change:showMochaReport', -> @renderMochaReport()
+            @listenTo @model, 'change:showMochaReport', ->
+                @renderMochaReport()
             @render()
 
         createElement: (tagName='div') ->
@@ -34,10 +35,10 @@ define (require) ->
 
         render: ->
             # console.warn 'FixturesContainer.render()'
-            $('html').toggleClass 'show-fixtures', @model.get('showFixtures')
+            $('html').toggleClass('show-fixtures', @model.get('showFixtures'))
             @renderMochaReport()
 
-        # TODO (yvdm): separate from FixturesContainer
+        # TODO: separate from FixturesContainer
         renderMochaReport: ->
-            $('html').toggleClass 'hide-mocha-report', not @model.get('showMochaReport')
-
+            $('html').toggleClass('hide-mocha-report',
+                    not @model.get('showMochaReport'))

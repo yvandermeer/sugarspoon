@@ -10,5 +10,5 @@ define (require) ->
         engine: null
 
         run: (tests) ->
-            tests = [tests] if _.isString tests
+            tests = [tests] if _(tests).isString()
             require tests, => @engine.run()

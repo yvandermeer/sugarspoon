@@ -3,7 +3,8 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   define(function(require) {
-    var $, Backbone, Handlebars, SettingsPanel, template, templateString, _ref;
+    var $, Backbone, Handlebars, SettingsPanel, template, templateString, _, _ref;
+    _ = require('underscore');
     $ = require('jquery');
     Backbone = require('backbone');
     Handlebars = require('handlebars');
@@ -33,12 +34,22 @@
 
       SettingsPanel.prototype.render = function() {
         if (!this.$el.parents('body').length) {
-          this.$el.html(template({
-            settings: this.model.toJSON()
-          }));
+          this.renderTemplate();
           this.$el.appendTo($('body'));
         }
         return this.restoreState();
+      };
+
+      SettingsPanel.prototype.renderTemplate = function() {
+        var context;
+        context = _(this).result('templateContext');
+        return this.$el.html(template(context));
+      };
+
+      SettingsPanel.prototype.templateContext = function() {
+        return {
+          settings: this.model.toJSON()
+        };
       };
 
       SettingsPanel.prototype.restoreState = function() {

@@ -14,7 +14,7 @@
 
       TestRunner.prototype.run = function(tests) {
         var _this = this;
-        if (_.isString(tests)) {
+        if (_(tests).isString()) {
           tests = [tests];
         }
         return require(tests, function() {

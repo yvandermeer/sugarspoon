@@ -17,7 +17,7 @@
         });
       });
       return describe('subtracting five and two', function() {
-        return it('equals threen', function() {
+        return it('equals three', function() {
           return expect(this.calculator.subtract(5, 2)).to.equal(3);
         });
       });

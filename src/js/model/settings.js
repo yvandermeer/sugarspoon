@@ -22,7 +22,7 @@
         return this._instance;
       };
 
-      Settings.prototype.storageKey = 'g0j0_test_settings';
+      Settings.prototype.storageKey = 'sugarspoon_settings';
 
       Settings.prototype.defaults = {
         showMochaReport: true,

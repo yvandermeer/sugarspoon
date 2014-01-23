@@ -19,7 +19,8 @@ define (require) ->
             @initialization = new $.Deferred
             super
 
-        done: -> @initialization.done arguments...
+        done: ->
+            @initialization.done(arguments...)
 
         initialize: ->
             if @configure.length is 0
