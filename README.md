@@ -77,6 +77,10 @@ define (require) ->
 Changelog
 ---------
 
+### 0.1.1
+
+* More flexible jQuery dependency in `bower.json`; any 2.x version should be fine.
+
 ### 0.1
 
 * First public release; mostly to be considered as proof-of-concept
