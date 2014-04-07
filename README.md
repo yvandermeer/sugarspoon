@@ -75,6 +75,11 @@ define (require) ->
 Changelog
 ---------
 
+### 0.2
+
+* Added .editorconfig and coffeelint for syntax checking
+* Changed Sugarspoon source code from 4 spaces to 2 spaces
+
 ### 0.1.1
 
 * More flexible jQuery dependency in `bower.json`; any 2.x version should be fine.
