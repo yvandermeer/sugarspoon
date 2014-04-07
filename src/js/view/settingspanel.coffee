@@ -47,7 +47,7 @@ define (require) ->
       @restoreState()
 
     renderTemplate: ->
-      context = _(@).result('templateContext')
+      context = _(this).result('templateContext')
       @$el.html(template(context))
 
     templateContext: ->

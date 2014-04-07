@@ -31,5 +31,5 @@ define (require) ->
       @set(state)
 
     persistState: ->
-      stateString = JSON.stringify(@)
+      stateString = JSON.stringify(this)
       window.localStorage.setItem(@storageKey, stateString)

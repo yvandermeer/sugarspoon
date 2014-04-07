@@ -4,7 +4,7 @@ define (require) ->
   TestRunner = require './base'
 
 
-  global = @
+  global = this
 
   class MochaTestRunner extends TestRunner
 

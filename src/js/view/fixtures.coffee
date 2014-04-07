@@ -19,7 +19,7 @@ define (require) ->
       view?.remove() unless Settings.get().get('showFixtures')
 
     constructor: ->
-      Fixtures._instance = @
+      Fixtures._instance = this
       super
 
     initialize: ->
