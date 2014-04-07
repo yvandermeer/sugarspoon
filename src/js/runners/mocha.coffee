@@ -1,12 +1,10 @@
 define (require) ->
-    mocha = require 'mocha'
+  mocha = require 'mocha'
 
-    TestRunner = require './base'
+  TestRunner = require './base'
 
 
-    global = @
+  class MochaTestRunner extends TestRunner
 
-    class MochaTestRunner extends TestRunner
-
-        constructor: ->
-            @engine = window.mochaPhantomJS or mocha
+    constructor: ->
+      @engine = window.mochaPhantomJS or window.mocha

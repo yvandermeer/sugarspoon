@@ -1,14 +1,14 @@
 define (require) ->
-    _ = require 'underscore'
+  _ = require 'underscore'
 
 
-    class TestRunner
-        ###
-        Base class for custom test runners
-        ###
+  class TestRunner
+    ###
+    Base class for custom test runners
+    ###
 
-        engine: null
+    engine: null
 
-        run: (tests) ->
-            tests = [tests] if _(tests).isString()
-            require tests, => @engine.run()
+    run: (tests) ->
+      tests = [tests] if _(tests).isString()
+      require tests, => @engine.run()
