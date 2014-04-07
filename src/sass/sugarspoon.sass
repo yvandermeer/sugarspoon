@@ -3,62 +3,62 @@
 
 
 #header
-    position: fixed
-    z-index: 1
-    top: 0
-    width: 100%
-    padding-bottom: 20px
-    +background(linear-gradient(top, rgba(#fff, 1) 65%, transparent 100%))
+  position: fixed
+  z-index: 1
+  top: 0
+  width: 100%
+  padding-bottom: 20px
+  +background(linear-gradient(top, rgba(#fff, 1) 65%, transparent 100%))
 
 #mocha
-    margin-top: 80px !important
+  margin-top: 80px !important
 
 #blanket-main
-    font-size: 15px !important
+  font-size: 15px !important
 
-    .bl-source
-        font-size: 13px
+  .bl-source
+    font-size: 13px
 
 .settings-panel
-    position: relative
-    bottom: -1px
-    margin: 2px
-    margin-bottom: 0
-    padding: 5px
-    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif
-    background: #eee
-    font-size: 14px
+  position: relative
+  bottom: -1px
+  margin: 2px
+  margin-bottom: 0
+  padding: 5px
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif
+  background: #eee
+  font-size: 14px
 
-    ul
-        list-style: none
-        margin: 0
-        padding: 0
-        +pie-clearfix
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+    +pie-clearfix
 
-    li
-        float: left
-        &:not(:first-child)
-            padding-left: 15px
+  li
+    float: left
+    &:not(:first-child)
+      padding-left: 15px
 
-    input[type=checkbox]
-        margin-right: 6px
+  input[type=checkbox]
+    margin-right: 6px
 
-    label, a
-        color: #000 !important
-        text-decoration: none
-        cursor: pointer
+  label, a
+    color: #000 !important
+    text-decoration: none
+    cursor: pointer
 
-        &:hover
-            text-decoration: underline
+    &:hover
+      text-decoration: underline
 
 #mocha-report
-    html.hide-mocha-report &
-        display: none
+  html.hide-mocha-report &
+    display: none
 
 
 #fixtures
-    margin-bottom: 30px
-    padding: 0 20px
+  margin-bottom: 30px
+  padding: 0 20px
 
-    html:not(.show-fixtures) &
-        display: none
+  html:not(.show-fixtures) &
+    display: none

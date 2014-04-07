@@ -1,38 +1,38 @@
 define (require) ->
-    $ = require 'jquery'
-    Backbone = require 'backbone'
+  $ = require 'jquery'
+  Backbone = require 'backbone'
 
-    chai = require 'chai'
-    mocha = require 'mocha'
+  chai = require 'chai'
+  mocha = require 'mocha'
 
 
-    class TestConfiguration extends Backbone.Model
+  class TestConfiguration extends Backbone.Model
 
-        chai: chai
-        mocha: mocha
+    chai: chai
+    mocha: mocha
 
-        defaults:
-            syntax: 'bdd'
-            useExpect: true
+    defaults:
+      syntax: 'bdd'
+      useExpect: true
 
-        constructor: ->
-            @initialization = new $.Deferred
-            super
+    constructor: ->
+      @initialization = new $.Deferred
+      super
 
-        done: ->
-            @initialization.done(arguments...)
+    done: ->
+      @initialization.done(arguments...)
 
-        initialize: ->
-            if @configure.length is 0
-                @configure()
-                @initialization.resolve()
-            else
-                @configure => @initialization.resolve()
+    initialize: ->
+      if @configure.length is 0
+        @configure()
+        @initialization.resolve()
+      else
+        @configure => @initialization.resolve()
 
-        configure: ->
+    configure: ->
 
-            # Setup BDD syntax (describe/it)
-            @mocha.setup(@get('syntax'))
+      # Setup BDD syntax (describe/it)
+      @mocha.setup(@get('syntax'))
 
-            # Make "expect()" globally available
-            global.expect = @chai.expect if @get('useExpect')
+      # Make "expect()" globally available
+      global.expect = @chai.expect if @get('useExpect')
