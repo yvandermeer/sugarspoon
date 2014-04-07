@@ -7,7 +7,7 @@ module.exports = (grunt) ->
         patterns =
             coffeescript: '**/*.coffee'
             javascriptGenerated: "#{dirs.javascriptGenerated}/**/*.js"
-            html: "examples/**/*.html"
+            html: 'examples/**/*.html'
 
         pkg: grunt.file.readJSON('package.json')
 
@@ -21,6 +21,10 @@ module.exports = (grunt) ->
                 src: ["#{dirs.javascript}/**/*.coffee"]
                 dest: '.'
                 ext: '.js'
+
+        coffeelint:
+            options: grunt.file.readJSON('coffeelint.json')
+            app: ["#{dirs.javascript}/**/*.coffee"]
 
         compass:
             dist:
@@ -85,14 +89,16 @@ module.exports = (grunt) ->
 
         clean: ["#{dirs.javascript}/**/*.{js,js.map}"]
 
-    # Based on https://github.com/gruntjs/grunt-contrib-watch#compiling-files-as-needed
+    # Based on:
+    # https://github.com/gruntjs/grunt-contrib-watch#compiling-files-as-needed
     changedFiles = Object.create(null)
     onChange = grunt.util._.debounce ->
         filepaths = Object.keys(changedFiles)
 
         # Selectively compile changed CoffeeScript files
         cwd = grunt.config 'coffee.glob_to_multiple.cwd'
-        filepathsRelative = grunt.util._.map filepaths, (s) -> s.replace "#{cwd}/", ''
+        filepathsRelative = grunt.util._.map filepaths, (s) ->
+            s.replace "#{cwd}/", ''
         grunt.config 'coffee.glob_to_multiple.src', filepathsRelative
 
         changedFiles = Object.create(null)
@@ -113,6 +119,7 @@ module.exports = (grunt) ->
 
     grunt.registerTask 'build', ['requirejs', 'uglify']
 
+    grunt.loadNpmTasks 'grunt-coffeelint'
     grunt.loadNpmTasks 'grunt-contrib-clean'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-compass'

@@ -16,8 +16,8 @@ define (require) ->
         views: {}
         data: {}
 
-        constructor: (options={}) ->
-            @config = do =>
+        constructor: (options = {}) ->
+            @config = do ->
                 return options.config \
                     if options.config instanceof TestConfiguration
                 # Support simple config functions without having to create
@@ -30,7 +30,7 @@ define (require) ->
             @views.settingsPanel = new SettingsPanel model: @settings
             @views.settingsPanel.listenTo @settings, \
                     'change:coverage change:showFixtures', ->
-                        window.location.reload()
+                window.location.reload()
 
             @views.fixtures = new Fixtures el: '#fixtures', \
                     model: @settings
@@ -52,7 +52,7 @@ define (require) ->
                 @runner = new MochaTestRunner
                 @runnerLoaded.resolve()
 
-        run: (tests='test/main') ->
+        run: (tests = 'test/main') ->
             $.when(@config.done, @runnerLoaded).then =>
                 if not @runner
                     console.error 'No test runner defined!'

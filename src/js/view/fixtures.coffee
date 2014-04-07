@@ -29,7 +29,7 @@ define (require) ->
                 @renderMochaReport()
             @render()
 
-        createElement: (tagName='div') ->
+        createElement: (tagName = 'div') ->
             ###
             Creates a new child element
             ###
