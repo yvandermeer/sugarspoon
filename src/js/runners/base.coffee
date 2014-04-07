@@ -11,4 +11,7 @@ define (require) ->
 
     run: (tests) ->
       tests = [tests] if _(tests).isString()
-      require tests, => @engine.run()
+      require tests, =>
+        # Help guarantee the order of suite execution
+        suite?() for suite in arguments
+        @engine.run()

@@ -1,11 +1,12 @@
 (function() {
   define(function(require) {
-    var TestRunner, runner;
+    var TestRunner, runner, tests;
     TestRunner = require('sugarspoon/main');
+    tests = require('test/main');
     runner = new TestRunner({
       coverage: true
     });
-    return runner.run('test/main');
+    return runner.run(tests);
   });
 
 }).call(this);

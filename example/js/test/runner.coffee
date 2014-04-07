@@ -6,6 +6,8 @@ define (require) ->
 
   TestRunner = require 'sugarspoon/main'
 
+  tests = require 'test/main'
+
   #BaseTestConfiguration = require 'sugarspoon/model/configuration'
 
 
@@ -21,4 +23,4 @@ define (require) ->
       #@chai.use(chaiDatetime)
 
   runner = new TestRunner coverage: true #, config: new TestConfiguration
-  runner.run('test/main')
+  runner.run(tests)

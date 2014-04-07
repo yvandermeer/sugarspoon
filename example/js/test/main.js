@@ -1,22 +1,11 @@
 (function() {
-  var test, tests;
-
-  tests = ['calculator', 'someview'];
-
-  define((function() {
-    var _i, _len, _results;
+  define(function() {
+    var module, _i, _len, _ref, _results;
+    _ref = ['calculator', 'someview'];
     _results = [];
-    for (_i = 0, _len = tests.length; _i < _len; _i++) {
-      test = tests[_i];
-      _results.push("test/spec/" + test);
-    }
-    return _results;
-  })(), function() {
-    var suite, _i, _len, _results;
-    _results = [];
-    for (_i = 0, _len = arguments.length; _i < _len; _i++) {
-      suite = arguments[_i];
-      _results.push(typeof suite === "function" ? suite() : void 0);
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      module = _ref[_i];
+      _results.push("test/spec/" + module);
     }
     return _results;
   });
