@@ -1,9 +1,7 @@
 define (require) ->
   $ = require 'jquery'
   Backbone = require 'backbone'
-
   chai = require 'chai'
-  mocha = require 'mocha'
 
 
   class TestConfiguration extends Backbone.Model

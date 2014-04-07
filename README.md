@@ -77,8 +77,9 @@ Changelog
 
 ### 0.2
 
-* Added .editorconfig and coffeelint for syntax checking
-* Changed Sugarspoon source code from 4 spaces to 2 spaces
+* Mocha is no longer loaded using RequireJS – it should be loaded through a regular script tag instead. This is for [compatibility with grunt-mocha](https://github.com/kmiyashiro/grunt-mocha#amd).
+* Added [.editorconfig](http://editorconfig.org) and [coffeelint](http://www.coffeelint.org) for syntax checking.
+* Changed Sugarspoon source code from 4 spaces to 2 spaces.
 
 ### 0.1.1
 

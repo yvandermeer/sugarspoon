@@ -1,6 +1,4 @@
 define (require) ->
-  mocha = require 'mocha'
-
   TestRunner = require './base'
 
 

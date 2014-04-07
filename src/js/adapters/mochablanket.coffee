@@ -1,5 +1,4 @@
 define (require) ->
-  mocha = require 'mocha'
   blanket = require 'blanket'
 
 

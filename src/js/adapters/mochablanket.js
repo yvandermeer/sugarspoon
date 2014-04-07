@@ -1,7 +1,6 @@
 (function() {
   define(function(require) {
-    var MochaBlanketAdapter, blanket, mocha;
-    mocha = require('mocha');
+    var MochaBlanketAdapter, blanket;
     blanket = require('blanket');
     return MochaBlanketAdapter = (function() {
       function MochaBlanketAdapter() {

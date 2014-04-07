@@ -1,6 +1,5 @@
 define (require) ->
   blanket = require 'blanket'
-  mocha = require 'mocha'
 
   MochaBlanketAdapter = require '../adapters/mochablanket'
   TestRunner = require './base'
