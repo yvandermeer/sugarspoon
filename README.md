@@ -50,13 +50,12 @@ Note: to get accurate coverage reporting using RequireJS when running Mocha test
 
 ```coffee
 define (require) ->
-    # this will load 'component', even if the test suite below is not run
-    MyComponent = require 'component'
+  # this will load 'component', even if the test suite below is not run
+  MyComponent = require 'component'
 
-    describe 'My component', ->
-
-        it 'does some cool stuff', ->
-            (new MyComponent).doSomething()
+  describe 'My component', ->
+    it 'does some cool stuff', ->
+      (new MyComponent).doSomething()
 ```
 
 
@@ -65,13 +64,12 @@ define (require) ->
 ```coffee
 define (require) ->
 
-    describe 'My component', ->
+  describe 'My component', ->
+    before (done) ->
+      require ['component'], (@MyComponent) => done()
 
-        before (done) ->
-            require ['component'], (@MyComponent) => done()
-
-        it 'does some cool stuff', ->
-            (new @MyComponent).doSomething()
+    it 'does some cool stuff', ->
+      (new @MyComponent).doSomething()
 ```
 
 Changelog
