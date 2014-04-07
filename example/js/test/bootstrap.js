@@ -6,5 +6,5 @@
 }).call(this);
 
 /*
-//@ sourceMappingURL=main-bootstrap.js.map
+//@ sourceMappingURL=bootstrap.js.map
 */
