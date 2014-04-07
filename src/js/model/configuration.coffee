@@ -30,9 +30,7 @@ define (require) ->
         @configure => @initialization.resolve()
 
     configure: ->
-
       # Setup BDD syntax (describe/it)
       @mocha.setup(@get('syntax'))
-
       # Make "expect()" globally available
-      global.expect = @chai.expect if @get('useExpect')
+      window.expect = @chai.expect if @get('useExpect')

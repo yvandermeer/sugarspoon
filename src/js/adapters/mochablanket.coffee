@@ -40,8 +40,7 @@ define (require) ->
           blanket.onTestStart()
 
         runner.on 'test end', (test) ->
-          blanket.onTestDone(test.parent.tests.length,
-              test.state == 'passed')
+          blanket.onTestDone(test.parent.tests.length, test.state == 'passed')
 
         # I dont know why these became global leaks
         runner.globals(['stats', 'failures', 'runner'])

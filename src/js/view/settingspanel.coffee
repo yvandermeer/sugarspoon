@@ -9,18 +9,18 @@ define (require) ->
     <div>
       <ul>
         <li>
-          <label><input type="checkbox" class="showMochaReport"/>
-            mocha report</label>
+          <label><input type="checkbox" class="showMochaReport"/>mocha report
+            </label>
         </li>
 
         <li>
-          <label><input type="checkbox" class="coverage"/>
-            coverage report</label>
+          <label><input type="checkbox" class="coverage"/>coverage report
+            </label>
         </li>
 
         <li>
-          <label><input type="checkbox" class="showFixtures"/>
-            show fixtures</label>
+          <label><input type="checkbox" class="showFixtures"/>show fixtures
+            </label>
         </li>
       </ul>
     </div>
@@ -43,7 +43,7 @@ define (require) ->
     render: ->
       if not @$el.parents('body').length
         @renderTemplate()
-        @$el.appendTo $('body')
+        @$el.appendTo($('body'))
       @restoreState()
 
     renderTemplate: ->

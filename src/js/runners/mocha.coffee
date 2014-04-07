@@ -4,9 +4,7 @@ define (require) ->
   TestRunner = require './base'
 
 
-  global = this
-
   class MochaTestRunner extends TestRunner
 
     constructor: ->
-      @engine = window.mochaPhantomJS or mocha
+      @engine = window.mochaPhantomJS or window.mocha

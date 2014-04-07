@@ -28,12 +28,11 @@ define (require) ->
 
       @settings = TestSettings.get()
       @views.settingsPanel = new SettingsPanel model: @settings
-      @views.settingsPanel.listenTo @settings, \
-          'change:coverage change:showFixtures', ->
-        window.location.reload()
+      @views.settingsPanel.listenTo @settings,
+        'change:coverage change:showFixtures': ->
+          window.location.reload()
 
-      @views.fixtures = new Fixtures el: '#fixtures', \
-          model: @settings
+      @views.fixtures = new Fixtures el: '#fixtures', model: @settings
 
       coverageSupported = not window.mochaPhantomJS
       coverageEnabled = coverageSupported and @settings.get('coverage')
