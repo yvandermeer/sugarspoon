@@ -5,12 +5,11 @@
   define(function(require) {
     var MochaTestRunner, TestRunner;
     TestRunner = require('./base');
-    global = this;
     return MochaTestRunner = (function(_super) {
       __extends(MochaTestRunner, _super);
 
       function MochaTestRunner() {
-        this.engine = window.mochaPhantomJS || mocha;
+        this.engine = window.mochaPhantomJS || window.mocha;
       }
 
       return MochaTestRunner;

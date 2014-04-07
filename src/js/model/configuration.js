@@ -44,7 +44,7 @@
       TestConfiguration.prototype.configure = function() {
         this.mocha.setup(this.get('syntax'));
         if (this.get('useExpect')) {
-          return global.expect = this.chai.expect;
+          return window.expect = this.chai.expect;
         }
       };
 

@@ -8,7 +8,7 @@
     $ = require('jquery');
     Backbone = require('backbone');
     Handlebars = require('handlebars');
-    templateString = '<div>\n    <ul>\n        <li>\n            <label><input type="checkbox" class="showMochaReport"/>mocha report</label>\n        </li>\n\n        <li>\n            <label><input type="checkbox" class="coverage"/>coverage report</label>\n        </li>\n\n        <li>\n            <label><input type="checkbox" class="showFixtures"/>show fixtures</label>\n        </li>\n    </ul>\n</div>';
+    templateString = '<div>\n  <ul>\n    <li>\n      <label><input type="checkbox" class="showMochaReport"/>mocha report\n        </label>\n    </li>\n\n    <li>\n      <label><input type="checkbox" class="coverage"/>coverage report\n        </label>\n    </li>\n\n    <li>\n      <label><input type="checkbox" class="showFixtures"/>show fixtures\n        </label>\n    </li>\n  </ul>\n</div>';
     template = Handlebars.compile(templateString);
     return SettingsPanel = (function(_super) {
       __extends(SettingsPanel, _super);

@@ -32,8 +32,10 @@
         this.views.settingsPanel = new SettingsPanel({
           model: this.settings
         });
-        this.views.settingsPanel.listenTo(this.settings, 'change:coverage change:showFixtures', function() {
-          return window.location.reload();
+        this.views.settingsPanel.listenTo(this.settings, {
+          'change:coverage change:showFixtures': function() {
+            return window.location.reload();
+          }
         });
         this.views.fixtures = new Fixtures({
           el: '#fixtures',
