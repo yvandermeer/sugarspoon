@@ -7,10 +7,7 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "node_modules",
-    "lib",
-    "test",
-    "tests"
+    "node_modules"
   ],
   "dependencies": {
     "backbone": "~1.1.0",
