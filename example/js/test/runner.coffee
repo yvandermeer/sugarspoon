@@ -15,7 +15,6 @@ define (require) ->
 
   runner = new TestRunner
     config: new TestConfiguration
-    coverage: true
     blanketOptions:
       filter: ///
         /app/

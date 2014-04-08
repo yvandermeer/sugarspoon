@@ -26,7 +26,6 @@
     })(BaseTestConfiguration);
     runner = new TestRunner({
       config: new TestConfiguration,
-      coverage: true,
       blanketOptions: {
         filter: /\/app\//,
         antifilter: /(?:vendor|spec|src)\//,

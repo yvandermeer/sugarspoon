@@ -39,9 +39,6 @@ define (require) ->
 
       @runnerLoaded = new $.Deferred
       if coverageEnabled
-        coverageFilter = if _(options.coverage).isString() \
-            then options.coverage else null
-
         # Lazy-load the coverage runner to prevent BlanketJS from being
         # loaded even if we are not using the the CoverageRunner
         require ['./runners/coverage'], (CoverageRunner) =>

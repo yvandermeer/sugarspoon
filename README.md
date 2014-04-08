@@ -79,7 +79,7 @@ Changelog
 
 * Mocha is no longer loaded using RequireJS – it should be loaded through a regular script tag instead. This is for [compatibility with grunt-mocha](https://github.com/kmiyashiro/grunt-mocha#amd).
 * The API of the `TestRunner.run()` has changed; instead of passing the actual modules to run, you should now pass a list of module names to be loaded (using RequireJS). The TestRunner now makes sure to execute the test suites in order. Note that you still have to make sure to return a function from the test module instead of the direct call to `describe()`.
-* Removed default Blanket `filter` in the `CoverageRunner`. Configuration options for Blanket can now be passed to the `TestRunner` as a `blanketOptions` object.
+* Removed default Blanket `filter` in the `CoverageRunner`. Configuration options for Blanket can now be passed to the `TestRunner` as a `blanketOptions` object. The `coverage` option on the `TestRunner` has been removed.
 * Added [.editorconfig](http://editorconfig.org) and [coffeelint](http://www.coffeelint.org) for syntax checking.
 * Changed Sugarspoon source code from 4 spaces to 2 spaces.
 

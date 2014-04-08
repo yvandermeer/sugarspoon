@@ -14,7 +14,7 @@
       TestWrapper.prototype.data = {};
 
       function TestWrapper(options) {
-        var coverageEnabled, coverageFilter, coverageSupported,
+        var coverageEnabled, coverageSupported,
           _this = this;
         if (options == null) {
           options = {};
@@ -45,7 +45,6 @@
         coverageEnabled = coverageSupported && this.settings.get('coverage');
         this.runnerLoaded = new $.Deferred;
         if (coverageEnabled) {
-          coverageFilter = _(options.coverage).isString() ? options.coverage : null;
           require(['./runners/coverage'], function(CoverageRunner) {
             _this.runner = new CoverageRunner(_(options).pick('blanketOptions'));
             return _this.runnerLoaded.resolve();
