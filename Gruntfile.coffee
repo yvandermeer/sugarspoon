@@ -39,11 +39,6 @@ module.exports = (grunt) ->
           keepalive: true
           livereload: true
 
-    open:
-      all:
-        path: 'http://localhost:<%= connect.dev.options.port%>'
-        app: 'Google Chrome'
-
     #uglify:
     #    my_target:
     #        files:
@@ -109,9 +104,6 @@ module.exports = (grunt) ->
 
 
   grunt.registerTask 'server', [
-    # Open before connect because connect uses keepalive at the moment
-    # so anything after connect wouldn't run
-    'open',
     'connect',
   ]
 
@@ -127,4 +119,3 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-requirejs'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
-  grunt.loadNpmTasks 'grunt-open'
