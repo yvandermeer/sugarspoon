@@ -23,6 +23,9 @@
     "blanket": "~1.1.5",
     "chai": "~1.8.1",
     "chai-jquery": "~1.2.1",
-    "mocha": "1.13"
+    "mocha": "1.13",
+    "sinon": "http://sinonjs.org/releases/sinon-1.9.1.js",
+    "sinon-chai": "~2.5.0",
+    "squire": "*"
   }
 }

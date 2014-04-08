@@ -3,7 +3,7 @@ module.exports = (grunt) ->
   grunt.initConfig do ->
     dirs =
       #javascriptGenerated: "src/js"
-      javascript: '{src,example}/js'
+      javascript: '{src,example,test}/js'
     patterns =
       coffeescript: '**/*.coffee'
       javascriptGenerated: "#{dirs.javascriptGenerated}/**/*.js"
