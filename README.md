@@ -75,7 +75,11 @@ define (require) ->
 Changelog
 ---------
 
-### 0.2
+### 0.2.1
+
+* Fix semver tag for bower
+
+### 0.2.0
 
 * Mocha is no longer loaded using RequireJS – it should be loaded through a regular script tag instead. This is for [compatibility with grunt-mocha](https://github.com/kmiyashiro/grunt-mocha#amd).
 * The API of the `TestRunner.run()` has changed; instead of passing the actual modules to run, you should now pass a list of module names to be loaded (using RequireJS). The TestRunner now makes sure to execute the test suites in order. Note that you still have to make sure to return a function from the test module instead of the direct call to `describe()`.
@@ -87,7 +91,7 @@ Changelog
 
 * More flexible jQuery dependency in `bower.json`; any 2.x version should be fine.
 
-### 0.1
+### 0.1.0
 
 * First public release; mostly to be considered as proof-of-concept
 
