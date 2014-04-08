@@ -1,29 +1,26 @@
 (function() {
   define(function(require) {
-    var Fixtures;
-    Fixtures = require('sugarspoon/view/fixtures');
+    var viewTest;
+    viewTest = require('sugarspoon/util/view');
     return function() {
       return describe('Some View', function() {
+        viewTest();
         before(function(done) {
-          var _this = this;
-          return require(['app/someview'], function(SomeView) {
-            _this.SomeView = SomeView;
-            return done();
+          this.sys.define({
+            SomeView: 'app/someview'
           });
+          return this.sys.load(done);
         });
         beforeEach(function() {
-          return this.view = new this.SomeView({
-            el: Fixtures.createElement()
+          return this.util.view.create({
+            "class": this.sys.SomeView
           });
-        });
-        afterEach(function() {
-          return Fixtures.removeView(this.view);
         });
         return it('displays the proper text', function() {
           var textToShow;
           textToShow = 'output of some view';
-          this.view.show(textToShow);
-          return expect(this.view.$el).to.have.text(textToShow);
+          this._.view.show(textToShow);
+          return expect(this._.view.$el).to.have.text(textToShow);
         });
       });
     };

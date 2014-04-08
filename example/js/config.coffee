@@ -17,6 +17,9 @@ require.config
     'chai': "#{vendor}chai/chai"
     'chai-jquery': "#{vendor}chai-jquery/chai-jquery"
     'mocha': "#{vendor}mocha/mocha"
+    'sinon': "#{vendor}sinon/index"
+    'sinon-chai': "#{vendor}sinon-chai/lib/sinon-chai"
+    'squire': "#{vendor}squire/src/Squire"
 
     'template': '../handlebars'
 
@@ -34,3 +37,6 @@ require.config
       exports: 'blanket'
     'mocha':
       exports: 'mocha'
+    'sinon':
+      exports: 'sinon'
+    'sinon-chai': ['sinon']

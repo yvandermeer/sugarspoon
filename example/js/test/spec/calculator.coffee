@@ -1,21 +1,25 @@
 define (require) ->
+  baseTest = require 'sugarspoon/util/base'
   -> \
 
 
   describe 'Calculator', ->
+    baseTest()
 
     before (done) ->
-      require ['app/calculator'], (@Calculator) => done()
+      @sys.define
+        Calculator: 'app/calculator'
+      @sys.load(done)
 
     beforeEach ->
-      @calculator = new @Calculator
+      @_.calculator = new @sys.Calculator
 
     describe 'adding one and one', ->
 
       it 'equals two', ->
-        expect(@calculator.add(1, 1)).to.equal(2)
+        expect(@_.calculator.add(1, 1)).to.equal(2)
 
     describe 'subtracting five and two', ->
 
       it 'equals three', ->
-        expect(@calculator.subtract(5, 2)).to.equal(3)
+        expect(@_.calculator.subtract(5, 2)).to.equal(3)
