@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "collection.js",
+  "sourceRoot": "",
+  "sources": [
+    "collection.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,CAAA,CAAO,GAAP,CAAO,EAAC;CACN,OAAA,gBAAA;CAAA,EAAW,CAAX,GAAW,CAAX,cAAW;GAGM,MAAA,EAAjB,GAAA;CACE,OAAA,KAAA;CALG,IAIY;CAJnB,EAAO;CAAP"
+}
