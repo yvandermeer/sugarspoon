@@ -39,11 +39,6 @@ module.exports = (grunt) ->
           keepalive: true
           livereload: true
 
-    #uglify:
-    #    my_target:
-    #        files:
-    #            'sugarspoon-min.js': ['sugarspoon.js']
-
     watch:
       coffee:
         files: [patterns.coffeescript]
@@ -58,29 +53,6 @@ module.exports = (grunt) ->
           patterns.javascriptGenerated,
           patterns.html,
         ]
-
-    requirejs:
-      compile:
-        options: do ->
-          baseUrl = dirs.javascriptGenerated
-          optimize = false
-
-          baseUrl: baseUrl
-          name: '../../vendor/almond/almond'
-          include: [
-            'spindle/main',
-          ]
-          exclude: [
-            'underscore',
-          ]
-          paths:
-            'underscore': '../../vendor/underscore/underscore'
-          wrap:
-            startFile: 'src/wrap/start.frag'
-            endFile: 'src/wrap/end.frag'
-          out: 'spindle.js'
-          optimize: if optimize then 'uglify2' else 'none'
-          preserveLicenseComments: not optimize
 
     clean: ["#{dirs.javascript}/**/*.{js,js.map}"]
 
