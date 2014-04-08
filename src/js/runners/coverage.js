@@ -11,6 +11,9 @@
       __extends(CoverageRunner, _super);
 
       function CoverageRunner(options) {
+        if (options == null) {
+          options = {};
+        }
         this.setOptions(options.blanketOptions);
         this.engine = new MochaBlanketAdapter;
       }

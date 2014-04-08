@@ -7,7 +7,7 @@ define (require) ->
 
   class CoverageRunner extends TestRunner
 
-    constructor: (options) ->
+    constructor: (options = {}) ->
       @setOptions(options.blanketOptions)
       @engine = new MochaBlanketAdapter
 
