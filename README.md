@@ -75,6 +75,11 @@ define (require) ->
 Changelog
 ---------
 
+### 0.3
+
+* Added `baseTest()`, `viewTest()`, `modelTest()` and `collectionTest()` utility functions, along with unit tests for their functionality.
+* Added a special `meta/sanitcheck` test suite
+
 ### 0.2.2
 
 * Fix leftbehind `loadNpmTasks` calls in Gruntfile
