@@ -17,7 +17,13 @@ define (require) ->
     config: new TestConfiguration
     coverage: true
     blanketOptions:
-      branchTracking: true
+      filter: ///
+        /app/
+      ///
+      antifilter: ///
+        (?:vendor|spec|src)/
+      ///
+      branchTracking: false
       debug: true
 
   runner.run(tests)

@@ -6,7 +6,7 @@
       return describe('Some View', function() {
         before(function(done) {
           var _this = this;
-          return require(['someview'], function(SomeView) {
+          return require(['app/someview'], function(SomeView) {
             _this.SomeView = SomeView;
             return done();
           });

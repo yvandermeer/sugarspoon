@@ -4,7 +4,7 @@
       return describe('Calculator', function() {
         before(function(done) {
           var _this = this;
-          return require(['calculator'], function(Calculator) {
+          return require(['app/calculator'], function(Calculator) {
             _this.Calculator = Calculator;
             return done();
           });

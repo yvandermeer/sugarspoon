@@ -5,7 +5,7 @@ define (require) ->
   describe 'Calculator', ->
 
     before (done) ->
-      require ['calculator'], (@Calculator) => done()
+      require ['app/calculator'], (@Calculator) => done()
 
     beforeEach ->
       @calculator = new @Calculator

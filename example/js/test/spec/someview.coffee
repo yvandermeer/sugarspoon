@@ -6,7 +6,7 @@ define (require) ->
   describe 'Some View', ->
 
     before (done) ->
-      require ['someview'], (@SomeView) => done()
+      require ['app/someview'], (@SomeView) => done()
 
     beforeEach ->
       @view = new @SomeView
