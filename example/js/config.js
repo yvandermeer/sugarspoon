@@ -1,8 +1,7 @@
 (function() {
   require.config({
     paths: (function() {
-      var root, staticPrefix, vendor;
-      staticPrefix = require.isBrowser ? window._staticUrl : "" + process.env.PROJECT_ROOT + "/static/";
+      var root, vendor;
       root = '../../';
       vendor = "" + root + "vendor/";
       return {
@@ -10,10 +9,11 @@
         'sugarspoon': "" + root + "src/js",
         'backbone': "" + vendor + "backbone/backbone",
         'handlebars': "" + vendor + "handlebars/handlebars",
-        'jquery': "" + vendor + "jquery/jquery",
+        'jquery': "" + vendor + "jquery/dist/jquery",
         'underscore': "" + vendor + "underscore/underscore",
         'blanket': "" + vendor + "blanket/dist/qunit/blanket",
         'chai': "" + vendor + "chai/chai",
+        'chai-jquery': "" + vendor + "chai-jquery/chai-jquery",
         'mocha': "" + vendor + "mocha/mocha",
         'template': '../handlebars'
       };

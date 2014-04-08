@@ -18,6 +18,13 @@
           tests = [tests];
         }
         return require(tests, function() {
+          var suite, _i, _len;
+          for (_i = 0, _len = arguments.length; _i < _len; _i++) {
+            suite = arguments[_i];
+            if (typeof suite === "function") {
+              suite();
+            }
+          }
           return _this.engine.run();
         });
       };

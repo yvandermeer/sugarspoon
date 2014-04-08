@@ -50,13 +50,12 @@ Note: to get accurate coverage reporting using RequireJS when running Mocha test
 
 ```coffee
 define (require) ->
-    # this will load 'component', even if the test suite below is not run
-    MyComponent = require 'component'
+  # this will load 'component', even if the test suite below is not run
+  MyComponent = require 'component'
 
-    describe 'My component', ->
-
-        it 'does some cool stuff', ->
-            (new MyComponent).doSomething()
+  describe 'My component', ->
+    it 'does some cool stuff', ->
+      (new MyComponent).doSomething()
 ```
 
 
@@ -65,17 +64,24 @@ define (require) ->
 ```coffee
 define (require) ->
 
-    describe 'My component', ->
+  describe 'My component', ->
+    before (done) ->
+      require ['component'], (@MyComponent) => done()
 
-        before (done) ->
-            require ['component'], (@MyComponent) => done()
-
-        it 'does some cool stuff', ->
-            (new @MyComponent).doSomething()
+    it 'does some cool stuff', ->
+      (new @MyComponent).doSomething()
 ```
 
 Changelog
 ---------
+
+### 0.2
+
+* Mocha is no longer loaded using RequireJS – it should be loaded through a regular script tag instead. This is for [compatibility with grunt-mocha](https://github.com/kmiyashiro/grunt-mocha#amd).
+* The API of the `TestRunner.run()` has changed; instead of passing the actual modules to run, you should now pass a list of module names to be loaded (using RequireJS). The TestRunner now makes sure to execute the test suites in order. Note that you still have to make sure to return a function from the test module instead of the direct call to `describe()`.
+* Removed default Blanket `filter` in the `CoverageRunner`. Configuration options for Blanket can now be passed to the `TestRunner` as a `blanketOptions` object. The `coverage` option on the `TestRunner` has been removed.
+* Added [.editorconfig](http://editorconfig.org) and [coffeelint](http://www.coffeelint.org) for syntax checking.
+* Changed Sugarspoon source code from 4 spaces to 2 spaces.
 
 ### 0.1.1
 

@@ -1,6 +1,6 @@
 {
   "name": "sugarspoon",
-  "version": "0.1.1",
+  "version": "0.2",
   "authors": [
     "Yuri van der Meer"
   ],
@@ -22,6 +22,7 @@
   "devDependencies": {
     "blanket": "~1.1.5",
     "chai": "~1.8.1",
+    "chai-jquery": "~1.2.1",
     "mocha": "1.13"
   }
 }

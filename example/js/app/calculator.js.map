@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "calculator.js",
+  "sourceRoot": "",
+  "sources": [
+    "calculator.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,CAAA,CAAO,GAAP,CAAO,EAAC;CAGN,OAAA,EAAA;WAAM;CAEJ;;CAAA,CAAS,CAAT,MAAM;CACJ,EAAW,YAAJ;CADT,MAAK;;CAAL,CAGc,CAAJ,KAAV,CAAW;CACT,EAAW,YAAJ;CAJT,MAGU;;CAHV;;CALG;CAAP,EAAO;CAAP"
+}
