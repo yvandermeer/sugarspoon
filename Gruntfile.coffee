@@ -79,15 +79,11 @@ module.exports = (grunt) ->
     'connect',
   ]
 
-  grunt.registerTask 'buildjs', ['clean', 'coffee', 'requirejs']
-
-  grunt.registerTask 'build', ['requirejs', 'uglify']
+  grunt.registerTask 'build', ['clean', 'coffee']
 
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-connect'
-  grunt.loadNpmTasks 'grunt-contrib-requirejs'
-  grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
