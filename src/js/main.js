@@ -3,7 +3,7 @@
     var $, Fixtures, MochaTestRunner, SettingsPanel, TestConfiguration, TestSettings, TestWrapper, _;
     _ = require('underscore');
     $ = require('jquery');
-    MochaTestRunner = require('./runners/mocha');
+    MochaTestRunner = require('./runner/mocha');
     TestConfiguration = require('./model/configuration');
     TestSettings = require('./model/settings');
     SettingsPanel = require('./view/settingspanel');
@@ -45,7 +45,7 @@
         coverageEnabled = coverageSupported && this.settings.get('coverage');
         this.runnerLoaded = new $.Deferred;
         if (coverageEnabled) {
-          require(['./runners/coverage'], function(CoverageRunner) {
+          require(['./runner/coverage'], function(CoverageRunner) {
             _this.runner = new CoverageRunner(_(options).pick('blanketOptions'));
             return _this.runnerLoaded.resolve();
           });

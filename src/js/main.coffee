@@ -2,7 +2,7 @@ define (require) ->
   _ = require 'underscore'
   $ = require 'jquery'
 
-  MochaTestRunner = require './runners/mocha'
+  MochaTestRunner = require './runner/mocha'
 
   TestConfiguration = require './model/configuration'
   TestSettings = require './model/settings'
@@ -41,7 +41,7 @@ define (require) ->
       if coverageEnabled
         # Lazy-load the coverage runner to prevent BlanketJS from being
         # loaded even if we are not using the the CoverageRunner
-        require ['./runners/coverage'], (CoverageRunner) =>
+        require ['./runner/coverage'], (CoverageRunner) =>
           @runner = new CoverageRunner _(options).pick('blanketOptions')
           @runnerLoaded.resolve()
       else
