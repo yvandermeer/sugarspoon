@@ -10,14 +10,17 @@
     return CoverageRunner = (function(_super) {
       __extends(CoverageRunner, _super);
 
-      function CoverageRunner(baseDir) {
-        this.filter = /js-generated\/(?!config.js)(?!test\/)(?!\.\.\/lib\/)(?!\.\.\/js\/)/;
-        if (baseDir) {
-          this.filter = new RegExp("" + baseDir + "\\/" + this.filter.source);
-        }
-        blanket.options;
+      function CoverageRunner(options) {
+        this.setOptions(options.blanketOptions);
         this.engine = new MochaBlanketAdapter;
       }
+
+      CoverageRunner.prototype.setOptions = function(options) {
+        if (!options) {
+          return;
+        }
+        return blanket.options(options);
+      };
 
       return CoverageRunner;
 

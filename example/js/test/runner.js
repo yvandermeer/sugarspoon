@@ -26,7 +26,11 @@
     })(BaseTestConfiguration);
     runner = new TestRunner({
       config: new TestConfiguration,
-      coverage: true
+      coverage: true,
+      blanketOptions: {
+        branchTracking: true,
+        debug: true
+      }
     });
     return runner.run(tests);
   });

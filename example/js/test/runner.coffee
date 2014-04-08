@@ -16,5 +16,8 @@ define (require) ->
   runner = new TestRunner
     config: new TestConfiguration
     coverage: true
+    blanketOptions:
+      branchTracking: true
+      debug: true
 
   runner.run(tests)

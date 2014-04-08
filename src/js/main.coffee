@@ -45,7 +45,7 @@ define (require) ->
         # Lazy-load the coverage runner to prevent BlanketJS from being
         # loaded even if we are not using the the CoverageRunner
         require ['./runners/coverage'], (CoverageRunner) =>
-          @runner = new CoverageRunner coverageFilter
+          @runner = new CoverageRunner _(options).pick('blanketOptions')
           @runnerLoaded.resolve()
       else
         @runner = new MochaTestRunner

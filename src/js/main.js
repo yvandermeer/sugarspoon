@@ -47,7 +47,7 @@
         if (coverageEnabled) {
           coverageFilter = _(options.coverage).isString() ? options.coverage : null;
           require(['./runners/coverage'], function(CoverageRunner) {
-            _this.runner = new CoverageRunner(coverageFilter);
+            _this.runner = new CoverageRunner(_(options).pick('blanketOptions'));
             return _this.runnerLoaded.resolve();
           });
         } else {
