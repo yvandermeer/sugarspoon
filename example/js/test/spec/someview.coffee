@@ -3,7 +3,7 @@ define (require) ->
   -> \
 
 
-  describe 'Some view', ->
+  describe 'Some View', ->
 
     before (done) ->
       require ['someview'], (@SomeView) => done()
@@ -15,7 +15,7 @@ define (require) ->
     afterEach ->
       Fixtures.removeView(@view)
 
-    it 'shows something in the DOM', ->
+    it 'displays the proper text', ->
       textToShow = 'output of some view'
       @view.show(textToShow)
-      expect(@view.$el.text()).to.equal(textToShow)
+      expect(@view.$el).to.have.text(textToShow)

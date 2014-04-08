@@ -11,12 +11,13 @@ require.config
 
     'backbone': "#{vendor}backbone/backbone"
     'handlebars': "#{vendor}handlebars/handlebars"
-    'jquery': "#{vendor}jquery/jquery"
+    'jquery': "#{vendor}jquery/dist/jquery"
     'underscore': "#{vendor}underscore/underscore"
 
     # dev
     'blanket': "#{vendor}blanket/dist/qunit/blanket"
     'chai': "#{vendor}chai/chai"
+    'chai-jquery': "#{vendor}chai-jquery/chai-jquery"
     'mocha': "#{vendor}mocha/mocha"
 
     'template': '../handlebars'

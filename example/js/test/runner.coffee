@@ -1,26 +1,20 @@
 define (require) ->
-  #chaiBackbone = require 'chai-backbone'
-  #chaiChanges = require 'chai-changes'
-  #sinonChai = require 'sinon-chai'
-  #chaiDatetime = require 'chai-datetime'
+  chaiJQuery = require 'chai-jquery'
 
   TestRunner = require 'sugarspoon/main'
+  BaseTestConfiguration = require 'sugarspoon/model/configuration'
 
   tests = require 'test/main'
 
-  #BaseTestConfiguration = require 'sugarspoon/model/configuration'
 
+  class TestConfiguration extends BaseTestConfiguration
 
-  #class TestConfiguration extends BaseTestConfiguration
+    configure: ->
+      super
+      @chai.use(chaiJQuery)
 
-    #configure: ->
-      #super
-      # Chai plugins
-      #@chai.use(sinonChai)
-      #@chai.use(chaiBackbone)
-      #@chai.use(chaiChanges)
-      ##@chai.use(chaiJquery)
-      #@chai.use(chaiDatetime)
+  runner = new TestRunner
+    config: new TestConfiguration
+    coverage: true
 
-  runner = new TestRunner coverage: true #, config: new TestConfiguration
   runner.run(tests)

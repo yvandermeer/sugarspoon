@@ -3,7 +3,7 @@
     var Fixtures;
     Fixtures = require('sugarspoon/view/fixtures');
     return function() {
-      return describe('Some view', function() {
+      return describe('Some View', function() {
         before(function(done) {
           var _this = this;
           return require(['someview'], function(SomeView) {
@@ -19,11 +19,11 @@
         afterEach(function() {
           return Fixtures.removeView(this.view);
         });
-        return it('shows something in the DOM', function() {
+        return it('displays the proper text', function() {
           var textToShow;
           textToShow = 'output of some view';
           this.view.show(textToShow);
-          return expect(this.view.$el.text()).to.equal(textToShow);
+          return expect(this.view.$el).to.have.text(textToShow);
         });
       });
     };
