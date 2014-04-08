@@ -75,7 +75,7 @@ define (require) ->
 Changelog
 ---------
 
-### 0.2-dev
+### 0.2
 
 * Mocha is no longer loaded using RequireJS – it should be loaded through a regular script tag instead. This is for [compatibility with grunt-mocha](https://github.com/kmiyashiro/grunt-mocha#amd).
 * The API of the `TestRunner.run()` has changed; instead of passing the actual modules to run, you should now pass a list of module names to be loaded (using RequireJS). The TestRunner now makes sure to execute the test suites in order. Note that you still have to make sure to return a function from the test module instead of the direct call to `describe()`.
