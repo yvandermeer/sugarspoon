@@ -1,5 +1,5 @@
 define (require) ->
-  baseTest = require 'sugarspoon/util/base'
+  baseTest = require './base'
 
 
   collectionTest = ->

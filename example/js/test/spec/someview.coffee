@@ -1,21 +1,20 @@
 define (require) ->
-  Fixtures = require 'sugarspoon/view/fixtures'
+  viewTest = require 'sugarspoon/util/view'
   -> \
 
 
   describe 'Some View', ->
+    viewTest()
 
     before (done) ->
-      require ['app/someview'], (@SomeView) => done()
+      @sys.define
+        SomeView: 'app/someview'
+      @sys.load(done)
 
     beforeEach ->
-      @view = new @SomeView
-        el: Fixtures.createElement()
-
-    afterEach ->
-      Fixtures.removeView(@view)
+      @util.view.create({class: @sys.SomeView})
 
     it 'displays the proper text', ->
       textToShow = 'output of some view'
-      @view.show(textToShow)
-      expect(@view.$el).to.have.text(textToShow)
+      @_.view.show(textToShow)
+      expect(@_.view.$el).to.have.text(textToShow)

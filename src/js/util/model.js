@@ -1,7 +1,7 @@
 (function() {
   define(function(require) {
     var baseTest, modelTest;
-    baseTest = require('sugarspoon/util/base');
+    baseTest = require('./base');
     return modelTest = function() {
       return baseTest();
     };

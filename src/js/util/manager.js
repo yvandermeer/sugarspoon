@@ -6,7 +6,7 @@
     Backbone = require('backbone');
     sinon = require('sinon');
     Squire = require('squire');
-    SystemUnderTest = require('sugarspoon/util/systemundertest');
+    SystemUnderTest = require('./systemundertest');
     return TestSuiteManager = (function() {
       /*
       Sets up some basic testing tools: Squire and sinon

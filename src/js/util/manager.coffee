@@ -5,7 +5,7 @@ define (require) ->
   sinon = require 'sinon'
   Squire = require 'squire'
 
-  SystemUnderTest = require 'sugarspoon/util/systemundertest'
+  SystemUnderTest = require './systemundertest'
 
 
   class TestSuiteManager

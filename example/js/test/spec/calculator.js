@@ -1,25 +1,27 @@
 (function() {
   define(function(require) {
+    var baseTest;
+    baseTest = require('sugarspoon/util/base');
     return function() {
       return describe('Calculator', function() {
+        baseTest();
         before(function(done) {
-          var _this = this;
-          return require(['app/calculator'], function(Calculator) {
-            _this.Calculator = Calculator;
-            return done();
+          this.sys.define({
+            Calculator: 'app/calculator'
           });
+          return this.sys.load(done);
         });
         beforeEach(function() {
-          return this.calculator = new this.Calculator;
+          return this._.calculator = new this.sys.Calculator;
         });
         describe('adding one and one', function() {
           return it('equals two', function() {
-            return expect(this.calculator.add(1, 1)).to.equal(2);
+            return expect(this._.calculator.add(1, 1)).to.equal(2);
           });
         });
         return describe('subtracting five and two', function() {
           return it('equals three', function() {
-            return expect(this.calculator.subtract(5, 2)).to.equal(3);
+            return expect(this._.calculator.subtract(5, 2)).to.equal(3);
           });
         });
       });

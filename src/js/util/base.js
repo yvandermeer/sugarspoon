@@ -1,7 +1,7 @@
 (function() {
   define(function(require) {
     var TestManager, baseTest;
-    TestManager = require('sugarspoon/util/manager');
+    TestManager = require('./manager');
     return baseTest = function() {
       before(function() {
         return this.testManager = TestManager.forContext(this);

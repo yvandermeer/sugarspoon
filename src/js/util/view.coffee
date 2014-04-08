@@ -1,8 +1,8 @@
 define (require) ->
   _ = require 'underscore'
-  Fixtures = require 'sugarspoon/view/fixtures'
 
-  baseTest = require 'sugarspoon/util/base'
+  Fixtures = require '../view/fixtures'
+  baseTest = require './base'
 
 
   class ViewTestManager

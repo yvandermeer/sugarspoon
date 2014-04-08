@@ -75,10 +75,10 @@ define (require) ->
 Changelog
 ---------
 
-### 0.3-dev
+### 0.3.0
 
 * Added `baseTest()`, `viewTest()`, `modelTest()` and `collectionTest()` utility functions, along with unit tests for their functionality.
-* Added a special `meta/sanitcheck` test suite
+* Added a special `meta/sanitycheck` test suite to for checking left-behind properties on the Mocha test context. 
 
 ### 0.2.2
 
