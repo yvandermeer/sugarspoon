@@ -75,6 +75,11 @@ define (require) ->
 Changelog
 ---------
 
+### 0.2.2-dev
+
+* Fix leftbehind `loadNpmTasks` calls in Gruntfile
+* Renamed `adapters` and `runners` directories to `adapter` and `runner`
+
 ### 0.2.1
 
 * Fix semver tag for bower

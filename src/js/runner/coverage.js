@@ -5,7 +5,7 @@
   define(function(require) {
     var CoverageRunner, MochaBlanketAdapter, TestRunner, blanket;
     blanket = require('blanket');
-    MochaBlanketAdapter = require('../adapters/mochablanket');
+    MochaBlanketAdapter = require('../adapter/mochablanket');
     TestRunner = require('./base');
     return CoverageRunner = (function(_super) {
       __extends(CoverageRunner, _super);
