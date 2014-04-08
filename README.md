@@ -75,7 +75,7 @@ define (require) ->
 Changelog
 ---------
 
-### 0.3
+### 0.3-dev
 
 * Added `baseTest()`, `viewTest()`, `modelTest()` and `collectionTest()` utility functions, along with unit tests for their functionality.
 * Added a special `meta/sanitcheck` test suite
