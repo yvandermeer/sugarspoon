@@ -1,8 +1,7 @@
 (function() {
   require.config({
     paths: (function() {
-      var root, staticPrefix, vendor;
-      staticPrefix = require.isBrowser ? window._staticUrl : "" + process.env.PROJECT_ROOT + "/static/";
+      var root, vendor;
       root = '../../';
       vendor = "" + root + "vendor/";
       return {

@@ -1,7 +1,5 @@
 require.config
   paths: do ->
-    staticPrefix = if require.isBrowser then window._staticUrl \
-        else "#{process.env.PROJECT_ROOT}/static/"
     root = '../../'
     vendor = "#{root}vendor/"
 
