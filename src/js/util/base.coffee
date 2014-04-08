@@ -1,5 +1,5 @@
 define (require) ->
-  TestManager = require 'sugarspoon/util/manager'
+  TestManager = require './manager'
 
 
   baseTest = ->

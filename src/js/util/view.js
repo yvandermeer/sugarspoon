@@ -4,8 +4,8 @@
   define(function(require) {
     var Fixtures, ViewTestManager, baseTest, viewTest, _;
     _ = require('underscore');
-    Fixtures = require('sugarspoon/view/fixtures');
-    baseTest = require('sugarspoon/util/base');
+    Fixtures = require('../view/fixtures');
+    baseTest = require('./base');
     ViewTestManager = (function() {
       /*
       Creates view class for use in a Mocha testing context
