@@ -31,7 +31,7 @@ Files names in the coverage report can be clicked to show line-based coverage (t
 Usage
 -----
 
-* [Installation][doc_install] using bower
+* [Installing Sugarspoon][doc_install] using bower
 * See the [example][src_example] directory for a working demonstration
 * [Defining your tests][doc_use_definition] using RequireJS
 * [Base test utility functions][doc_use_utils] for namespacing an cleanup in your Mocha tests

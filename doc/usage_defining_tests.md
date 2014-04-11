@@ -73,7 +73,7 @@ If you want, you can define the list of test modules to be loaded in a separate 
 ```coffeescript
 define (require) ->
   TestRunner = require 'sugarspoon/main'
-  tests = require 'spec/all.coffee'
+  tests = require 'spec/all'
 
   (new TestRunner).run(tests)
 ```
