@@ -36,6 +36,8 @@ Usage
 * [Defining your tests][doc_use_definition] using RequireJS
 * [Base test utility functions][doc_use_utils] for namespacing an cleanup in your Mocha tests
 * How to get [accurate coverage reporting][doc_use_coverage] with Blanket.js
+* [Best practices][doc_best_practices] for writing your tests
+* Some more [testing techniques][doc_techniques]
 
 
 <a name="changelog"></a>
@@ -104,6 +106,8 @@ Finally, recognizing that the shared testing context in Mocha tests can lead to 
 [doc_use_coverage]: doc/usage_coverage_reporting.md
 [doc_use_definition]: doc/usage_defining_tests.md
 [doc_use_utils]: doc/usage_utility_functions.md
+[doc_best_practices]: doc/best_practices.md
+[doc_techniques]: doc/techniques.md
 [src_example]: example/
 
 [blanket]: http://blanketjs.org
