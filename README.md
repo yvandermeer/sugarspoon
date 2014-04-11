@@ -48,7 +48,7 @@ Changelog
 ### 0.3.1-dev
 
 * Moved many bower dependencies from dev-only dependencies to the normal "dependencies" list, since you will actually need them to use Sugarspoon.
-* Updated documentation
+* Extensively updated documentation
 
 ### 0.3.0
 
