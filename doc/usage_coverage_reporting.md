@@ -1,30 +1,42 @@
-Accurate coverage reporting
-===========================
+Selective coverage reporting
+============================
 
-To get accurate coverage reporting using RequireJS when running Mocha tests selectively (using the `grep` request parameter), you should take care to load the code to under test *from within your tests*.
+When running Mocha tests selectively (using the `grep` request parameter), you typically only want to see coverage reports on the modules actually being tested. 
 
-**Wrong**:
+To achieve this, avoid loading the code for the System Under Test from outside the test suites:
 
-```coffee
+```coffeescript
 define (require) ->
-  # this will load 'component', even if the test suite below is not run
-  MyComponent = require 'component'
+  # wrong: module is loaded even if the test suite is not executed
+  SomeModule = require 'some/module'
 
-  describe 'My component', ->
-    it 'does some cool stuff', ->
-      (new MyComponent).doSomething()
+  describe 'Some Module', ->
+    it 'does the right thing', ->
+      expect(new SomeModule).to.be.ok
 ```
 
+Instead, load the SUT from within the test suite using the `@sys` API provided by the [`baseTest()` utility function][doc_use_utils]:
 
-**Right**:
-
-```coffee
+```coffeescript
 define (require) ->
+  baseTest = require 'sugarspoon/util/base'
 
-  describe 'My component', ->
+  describe 'Some Module', ->
+    baseTest()
+
     before (done) ->
-      require ['component'], (@MyComponent) => done()
+      # right: only loads the module if the 'Some Module' test suite is run
+      @sys.define
+        SomeModule: 'some/module'
+      @sys.load(done)
 
-    it 'does some cool stuff', ->
-      (new @MyComponent).doSomething()
+    it 'does the right thing', ->
+      expect(new @sys.SomeModule).to.be.ok
 ```
+
+This allows for a a clean coverage baseline. **Running an empty suite (e.g. ?grep=xx) should not produce any coverage output**.
+
+Use stubs/mocks to isolate the SUT from its dependencies. See [Isolate the code under test](#isolate-code-under-test).
+
+
+[doc_use_utils]: ../doc/usage_utility_functions.md#utility-basetest

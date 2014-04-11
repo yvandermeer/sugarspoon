@@ -35,7 +35,7 @@ Usage
 * See the [example][src_example] directory for a working demonstration
 * [Defining your tests][doc_use_definition] using RequireJS
 * [Base test utility functions][doc_use_utils] for namespacing an cleanup in your Mocha tests
-* How to get [accurate coverage reporting][doc_use_coverage] with Blanket.js
+* How to get [selective coverage reporting][doc_use_coverage] with Blanket.js
 * [Best practices][doc_best_practices] for writing your tests
 * Some more [testing techniques][doc_techniques]
 

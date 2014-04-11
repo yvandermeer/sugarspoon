@@ -2,7 +2,6 @@
 
 While not everything is strictly related to the Sugarspoon functionality, some of these tips may help to write better unit tests:
 
-* [Load SUT from within the suite](#load-sut-within-suite)
 * [Test a single concept per test](#test-single-concept)
 * [Use nested suites for scenarios](#use-nested-suites)
 * [Name your test cases carefully](#naming-tests)
@@ -11,45 +10,6 @@ While not everything is strictly related to the Sugarspoon functionality, some o
 * [Code Quality: Keep it DRY](#keep-it-dry)
 * [Successful tests runs should be silent](#silent-tests)
 * [Abstract away asynchronous behavior](#abstract-async-behavior)
-
-
-<a name="load-sut-within-suite"></a>
-## Load SUT from within the suite
-
-Avoid loading the code for the System Under Test from outside the test suites:
-
-```coffeescript
-define (require) ->
-  # wrong: module is loaded even if the test suite is not executed
-  SomeModule = require 'some/module'
-
-  describe 'Some Module', ->
-    it 'does the right thing', ->
-      expect(new SomeModule).to.be.ok
-```
-
-Instead, load the SUT from within the test suite using the `@sys` API set up by the [`baseTest()`](#utility-basetest) utility:
-
-```coffeescript
-define (require) ->
-  baseTest = require 'sugarspoon/util/base'
-
-  describe 'Some Module', ->
-    baseTest()
-
-    before (done) ->
-      # right: only loads the module if the 'Some Module' test suite is run
-      @sys.define
-        SomeModule: 'some/module'
-      @sys.load(done)
-
-    it 'does the right thing', ->
-      expect(new @sys.SomeModule).to.be.ok
-```
-
-This allows for a a clean coverage baseline. **Running an empty suite (e.g. ?grep=xx) should not produce any coverage output**.
-
-Use stubs/mocks to isolate the SUT from its dependencies. See [Isolate the code under test](#isolate-code-under-test).
 
 
 <a name="test-single-concept"></a>
