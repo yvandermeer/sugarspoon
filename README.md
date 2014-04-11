@@ -13,7 +13,7 @@ Sugar-coated testing framework built around [RequireJS][requirejs], [Mocha][moch
 Features
 --------
 
-* **Easy configuration** of Blanket.js with Mocha and AMD (based on the mochablanket adapter provided by Blanket.js)
+* **Easy configuration** of Blanket.js with Mocha and AMD (based on the [mochablanket][mochablanket] adapter provided by Blanket.js)
 * **Toggle Blanket.js coverage** with automatic browser reload
 * **Persisted test settings** ("mocha report", "coverage report" and "show fixtures") across reloads (using HTML5 local storage)
 * **Base test utility functions** for writing clean Mocha tests with less code
@@ -101,16 +101,18 @@ Finally, recognizing that the shared testing context in Mocha tests can lead to 
 
 
 [src_example]: example/
-[src_use_install]: doc/usage_installation.md
-[src_use_utils]: doc/usage_utility_functions.md
 [src_use_coverage]: doc/usage_coverage_reporting.md
 [src_use_definition]: doc/usage_defining_tests.md
-[requirejs]: http://requirejs.org
-[mocha]: http://visionmedia.github.io/mocha/
-[chai]: http://chaijs.com
+[src_use_install]: doc/usage_installation.md
+[src_use_utils]: doc/usage_utility_functions.md
+
 [blanket]: http://blanketjs.org
-[grunt-mocha]: https://github.com/kmiyashiro/grunt-mocha#amd
+[chai]: http://chaijs.com
 [coffeelint]: http://www.coffeelint.org
 [editorconfig]: http://editorconfig.org
+[etb]: https://github.com/easytobook/ "Easytobook.com"
 [gj]: http://goeiejongens.nl/ "Goeie Jongens"
-[etb]: https://github.com/easytobook/
+[grunt-mocha]: https://github.com/kmiyashiro/grunt-mocha#amd
+[mocha]: http://visionmedia.github.io/mocha/
+[mochablanket]: https://github.com/alex-seville/blanket/blob/master/src/adapters/mocha-blanket.js
+[requirejs]: http://requirejs.org
