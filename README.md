@@ -13,10 +13,10 @@ Sugar-coated testing framework built around [RequireJS][requirejs], [Mocha][moch
 Features
 --------
 
-* **Easy configuration** of Blanket.js with Mocha and AMD (based on the [mochablanket][mochablanket] adapter provided by Blanket.js)
-* **Toggle Blanket.js coverage** with automatic browser reload
+* **Easy configuration** of Blanket.js with Mocha and AMD (based on the [mochablanket adapter][mochablanket] provided by Blanket.js)
+* **Toggle Blanket.js coverage report** with automatic browser reload
 * **Persisted test settings** ("mocha report", "coverage report" and "show fixtures") across reloads (using HTML5 local storage)
-* **Base test utility functions** for writing clean Mocha tests with less code
+* [Base test utility functions][doc_use_utils] for writing clean Mocha tests with less code
 
 Compared to the standard Mocha HTML output, Sugarspoon adds a settings bar at the bottom:
 
@@ -31,11 +31,11 @@ Files names in the coverage report can be clicked to show line-based coverage (t
 Usage
 -----
 
-* [Installation][src_use_install] using bower
+* [Installation][doc_install] using bower
 * See the [example][src_example] directory for a working demonstration
-* [Defining your tests][src_use_definition] using RequireJS
-* [Base test utility functions][src_use_utils] for namespacing an cleanup in your Mocha tests
-* How to get [accurate coverage reporting][src_use_coverage] with Blanket.js
+* [Defining your tests][doc_use_definition] using RequireJS
+* [Base test utility functions][doc_use_utils] for namespacing an cleanup in your Mocha tests
+* How to get [accurate coverage reporting][doc_use_coverage] with Blanket.js
 
 
 <a name="changelog"></a>
@@ -97,14 +97,14 @@ Also, since adding Blanket.js introduces quite a bit of overhead (feels about 2x
 
 While I was at it, I also added some extra configuration options to show/hide the detailed Mocha output itself, as well as some very simple HTML fixtures management (Backbone view elements).
 
-Finally, recognizing that the shared testing context in Mocha tests can lead to undesired side-effects between tests, several [base test utility functions][src_use_utils] were added to help namespace data and behavior on the test context and clean them up automatically.
+Finally, recognizing that the shared testing context in Mocha tests can lead to undesired side-effects between tests, several [base test utility functions][doc_use_utils] were added to help namespace data and behavior on the test context and clean them up automatically.
 
 
+[doc_install]: doc/installation.md
+[doc_use_coverage]: doc/usage_coverage_reporting.md
+[doc_use_definition]: doc/usage_defining_tests.md
+[doc_use_utils]: doc/usage_utility_functions.md
 [src_example]: example/
-[src_use_coverage]: doc/usage_coverage_reporting.md
-[src_use_definition]: doc/usage_defining_tests.md
-[src_use_install]: doc/usage_installation.md
-[src_use_utils]: doc/usage_utility_functions.md
 
 [blanket]: http://blanketjs.org
 [chai]: http://chaijs.com
