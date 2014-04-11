@@ -2,11 +2,10 @@ module.exports = (grunt) ->
 
   grunt.initConfig do ->
     dirs =
-      #javascriptGenerated: "src/js"
       javascript: '{src,example,test}/js'
     patterns =
       coffeescript: '**/*.coffee'
-      javascriptGenerated: "#{dirs.javascriptGenerated}/**/*.js"
+      javascript: "#{dirs.javascript}/**/*.js"
       html: 'examples/**/*.html'
 
     pkg: grunt.file.readJSON('package.json')
@@ -36,7 +35,6 @@ module.exports = (grunt) ->
       dev:
         options:
           port: 9001
-          keepalive: true
           livereload: true
 
     watch:
@@ -44,13 +42,13 @@ module.exports = (grunt) ->
         files: [patterns.coffeescript]
         tasks: ['coffee']
         options:
-          nospawn: true
+          spawn: false
           livereload: true
       livereload:
         options:
           livereload: true
         files: [
-          patterns.javascriptGenerated,
+          patterns.javascript,
           patterns.html,
         ]
 
@@ -77,6 +75,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'server', [
     'connect',
+    'watch',
   ]
 
   grunt.registerTask 'build', ['clean', 'coffee']

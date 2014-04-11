@@ -1,6 +1,6 @@
 {
   "name": "sugarspoon",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "authors": [
     "Yuri van der Meer"
   ],
@@ -11,18 +11,18 @@
   ],
   "dependencies": {
     "backbone": "~1.1.0",
+    "blanket": "~1.1.5",
+    "chai": "~1.8.1",
     "handlebars": "^1.0.0",
     "jquery": "2.x",
+    "mocha": "1.13",
     "requirejs": "~2.1.8",
+    "sinon": "http://sinonjs.org/releases/sinon-1.9.1.js",
+    "squire": "*",
     "underscore": "1.5.2"
   },
   "devDependencies": {
-    "blanket": "~1.1.5",
-    "chai": "~1.8.1",
     "chai-jquery": "~1.2.1",
-    "mocha": "1.13",
-    "sinon": "http://sinonjs.org/releases/sinon-1.9.1.js",
-    "sinon-chai": "~2.5.0",
-    "squire": "*"
+    "sinon-chai": "~2.5.0"
   }
 }

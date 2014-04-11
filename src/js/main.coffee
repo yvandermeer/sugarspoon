@@ -2,8 +2,6 @@ define (require) ->
   _ = require 'underscore'
   $ = require 'jquery'
 
-  MochaTestRunner = require './runner/mocha'
-
   TestConfiguration = require './model/configuration'
   TestSettings = require './model/settings'
 
@@ -11,10 +9,16 @@ define (require) ->
   Fixtures = require './view/fixtures'
 
 
-  class TestWrapper
+  class TestRunner
+    ###
+    The main Sugarspoon testrunner
+
+    Provides a public API for running a series of Mocha unit test suites. Actual
+    implementation is delegated to either a straight-up Mocha test runner or a
+    Blanket coverage runner.
+    ###
 
     views: {}
-    data: {}
 
     constructor: (options = {}) ->
       @config = do ->
@@ -45,8 +49,9 @@ define (require) ->
           @runner = new CoverageRunner _(options).pick('blanketOptions')
           @runnerLoaded.resolve()
       else
-        @runner = new MochaTestRunner
-        @runnerLoaded.resolve()
+        require ['./runner/mocha'], (MochaTestRunner) =>
+          @runner = new MochaTestRunner
+          @runnerLoaded.resolve()
 
     run: (tests = 'test/main') ->
       $.when(@config.done, @runnerLoaded).then =>
