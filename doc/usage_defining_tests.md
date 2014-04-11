@@ -1,7 +1,7 @@
 Defining your tests
 ===================
 
-Sugarspoon provides a [`TestRunner`][src_testrunner] that loads your test specs using RequireJS and executes `Mocha.run()` when all tests have loaded. 
+Sugarspoon provides a [TestRunner][src_testrunner] that loads your test specs using RequireJS and executes `Mocha.run()` when all tests have loaded. 
 
 ```coffee
 define (require) ->
@@ -79,4 +79,4 @@ define ->
 ]
 ```
 
-[src_testrunner]: src/js/main.coffee
+[src_testrunner]: ../src/js/main.coffee
