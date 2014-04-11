@@ -36,7 +36,8 @@ define (require) ->
 
 This allows for a a clean coverage baseline. **Running an empty suite (e.g. ?grep=xx) should not produce any coverage output**.
 
-Use stubs/mocks to isolate the SUT from its dependencies. See [Isolate the code under test](#isolate-code-under-test).
+Use stubs/mocks to isolate the SUT from its dependencies. See [Isolate the code under test][doc_isolate_code] for more details.
 
 
 [doc_use_utils]: ../doc/usage_utility_functions.md#utility-basetest
+[doc_isolate_code]: ../doc/techniques.md#isolate-code-under-test
