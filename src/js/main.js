@@ -1,19 +1,24 @@
 (function() {
   define(function(require) {
-    var $, Fixtures, MochaTestRunner, SettingsPanel, TestConfiguration, TestSettings, TestWrapper, _;
+    var $, Fixtures, SettingsPanel, TestConfiguration, TestRunner, TestSettings, _;
     _ = require('underscore');
     $ = require('jquery');
-    MochaTestRunner = require('./runner/mocha');
     TestConfiguration = require('./model/configuration');
     TestSettings = require('./model/settings');
     SettingsPanel = require('./view/settingspanel');
     Fixtures = require('./view/fixtures');
-    return TestWrapper = (function() {
-      TestWrapper.prototype.views = {};
+    return TestRunner = (function() {
+      /*
+      The main Sugarspoon testrunner
+      
+      Provides a public API for running a series of Mocha unit test suites. Actual
+      implementation is delegated to either a straight-up Mocha test runner or a
+      Blanket coverage runner.
+      */
 
-      TestWrapper.prototype.data = {};
+      TestRunner.prototype.views = {};
 
-      function TestWrapper(options) {
+      function TestRunner(options) {
         var coverageEnabled, coverageSupported,
           _this = this;
         if (options == null) {
@@ -50,12 +55,14 @@
             return _this.runnerLoaded.resolve();
           });
         } else {
-          this.runner = new MochaTestRunner;
-          this.runnerLoaded.resolve();
+          require(['./runner/mocha'], function(MochaTestRunner) {
+            _this.runner = new MochaTestRunner;
+            return _this.runnerLoaded.resolve();
+          });
         }
       }
 
-      TestWrapper.prototype.run = function(tests) {
+      TestRunner.prototype.run = function(tests) {
         var _this = this;
         if (tests == null) {
           tests = 'test/main';
@@ -69,7 +76,7 @@
         });
       };
 
-      return TestWrapper;
+      return TestRunner;
 
     })();
   });
