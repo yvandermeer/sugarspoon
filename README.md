@@ -45,10 +45,11 @@ Usage
 Changelog
 ---------
 
-### 0.3.1-dev
+### 0.3.1
 
 * Moved many bower dependencies from dev-only dependencies to the normal "dependencies" list, since you will actually need them to use Sugarspoon.
 * Extensively updated documentation
+* Avoided loading the regular Mocha testrunner when using the Blanket coverage runner 
 
 ### 0.3.0
 
