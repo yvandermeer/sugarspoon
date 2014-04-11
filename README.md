@@ -34,6 +34,7 @@ Usage
 * [Installing Sugarspoon][doc_install] using bower
 * See the [example][src_example] directory for a working demonstration
 * [Defining your tests][doc_use_definition] using RequireJS
+* Some [general notes][doc_general] on Mocha and testing approaches
 * [Base test utility functions][doc_use_utils] for namespacing an cleanup in your Mocha tests
 * How to get [selective coverage reporting][doc_use_coverage] with Blanket.js
 * [Best practices][doc_best_practices] for writing your tests
@@ -103,6 +104,7 @@ Finally, recognizing that the shared testing context in Mocha tests can lead to 
 
 
 [doc_install]: doc/installation.md
+[doc_general]: doc/general.md
 [doc_use_coverage]: doc/usage_coverage_reporting.md
 [doc_use_definition]: doc/usage_defining_tests.md
 [doc_use_utils]: doc/usage_utility_functions.md

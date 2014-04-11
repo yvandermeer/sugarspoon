@@ -5,6 +5,7 @@ While not everything is strictly related to the Sugarspoon functionality, some o
 * [Test a single concept per test](#test-single-concept)
 * [Use nested suites for scenarios](#use-nested-suites)
 * [Name your test cases carefully](#naming-tests)
+* [Order tests by increasing complexity](#ordering-tests)
 * [Full code coverage is a minimum](#full-code-coverage)
 * [Clean up and avoid side-effects](#cleanup-side-effects)
 * [Code Quality: Keep it DRY](#keep-it-dry)
@@ -111,6 +112,40 @@ it 'produces the correct sum', ->
 ```
 
 
+<a name="ordering-tests"></a>
+## Order tests by increasing complexity
+
+It is good to order your tests consistently, from generic modules to more specific modules. For example, in a typical Backbone application, you might use this order:
+
+1. utility functions, helpers
+1. models, collections
+1. view
+1. controllers
+
+Also, it probably makes sense to keep models and collections together, with the model coming before the collection:
+
+```coffeescript
+define ->
+  "spec/#{module}" for module in [
+    'util/fileLoader'
+    'util/priceCalculator'
+
+    'model/accommodation'
+    'collection/accommodationCollection'
+
+    'model/flight'
+    'collection/flightCollection'
+
+    'view/accommodationResultList'
+    'view/flightResultList'
+    'view/basket'
+
+    'controller/appController'
+  ]
+]
+```
+
+
 <a name="full-code-coverage"></a>
 ## Full code coverage is a minimum
 
@@ -209,3 +244,5 @@ describe 'Loaded module', ->
   it 'has the proper contents', ->
     expect(@result.contents).to.equal(expectedContents)
 ```
+
+[sugarspoon-defining-tests]: usage_defining_tests.md
