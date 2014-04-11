@@ -11,10 +11,16 @@ define (require) ->
   Fixtures = require './view/fixtures'
 
 
-  class TestWrapper
+  class TestRunner
+    ###
+    The main Sugarspoon testrunner
+
+    Provides a public API for running a series of Mocha unit test suites. Actual
+    implementation is delegated to either a straight-up Mocha test runner or a
+    Blanket coverage runner.
+    ###
 
     views: {}
-    data: {}
 
     constructor: (options = {}) ->
       @config = do ->
