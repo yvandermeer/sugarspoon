@@ -68,12 +68,21 @@ define ->
       # verification...
 ```
 
-The list of actual tests to be loaded is defined in `test/unit/main.coffee`:
+If you want, you can define the list of test modules to be loaded in a separate file too:
 
 ```coffeescript
+define (require) ->
+  TestRunner = require 'sugarspoon/main'
+  tests = require 'spec/all.coffee'
+
+  (new TestRunner).run(tests)
+```
+
+```coffeescript
+# spec/all.coffee
 define ->
-  "test/spec/#{module}" for module in [
-    'someModule'
+  "spec/#{module}" for module in [
+    'some/module'
     'another/module'
   ]
 ]
