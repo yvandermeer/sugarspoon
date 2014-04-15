@@ -20,7 +20,8 @@
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-connect": "~0.6.0",
     "grunt-contrib-watch": "~0.5.3",
-    "jit-grunt": "^0.5.0"
+    "jit-grunt": "^0.5.0",
+    "time-grunt": "^0.3.1"
   },
   "scripts": {},
   "author": "Yuri van der Meer",
