@@ -1,5 +1,7 @@
 module.exports = (grunt) ->
 
+  require('jit-grunt')(grunt)
+
   grunt.initConfig do ->
     dirs =
       javascript: '{src,example,test}/js'
@@ -80,9 +82,3 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'build', ['clean', 'coffee']
 
-  grunt.loadNpmTasks 'grunt-coffeelint'
-  grunt.loadNpmTasks 'grunt-contrib-clean'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-compass'
-  grunt.loadNpmTasks 'grunt-contrib-connect'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
