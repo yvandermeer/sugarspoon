@@ -47,7 +47,7 @@ Changelog
 
 ### 0.3.2
 
-* Add support for grunt-blanket-mocha for getting test coverage output on the command-line.
+* Add support for [grunt-blanket-mocha][grunt-blanket-mocha] for getting test coverage output on the command-line.
 * The `blanketOptions` passed to the `TestRunner` can now be a function, to allow for the grunt-blanket-mocha reporter option to be set only if running in PhantomJS (see the example directory).
 * Refactored the Gruntfile and TestRunner.
 
@@ -128,4 +128,5 @@ Finally, recognizing that the shared testing context in Mocha tests can lead to 
 [grunt-mocha]: https://github.com/kmiyashiro/grunt-mocha#amd
 [mocha]: http://visionmedia.github.io/mocha/
 [mochablanket]: https://github.com/alex-seville/blanket/blob/master/src/adapters/mocha-blanket.js
+[grunt-blanket-mocha]: https://github.com/ModelN/grunt-blanket-mocha
 [requirejs]: http://requirejs.org
