@@ -1,21 +1,12 @@
 define (require) ->
-  sinonChai = require 'sinon-chai'
-
   TestRunner = require 'sugarspoon/main'
-  BaseTestConfiguration = require 'sugarspoon/model/configuration'
 
-  tests = require './main'
-
-
-  class TestConfiguration extends BaseTestConfiguration
-
-    configure: ->
-      super
-      @chai.use(sinonChai)
+  testSuite = require './suite'
 
 
   runner = new TestRunner
-    config: new TestConfiguration
-
-
-  runner.run(tests)
+    blanketOptions:
+      filter: ///
+        \bjs/src/
+      ///
+  runner.run(testSuite)

@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "chai-jquery": "~1.2.1",
+    "grunt-blanket-mocha": "0.4.0",
     "sinon-chai": "~2.5.0"
   }
 }

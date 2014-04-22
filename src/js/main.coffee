@@ -8,6 +8,9 @@ define (require) ->
   SettingsPanel = require './view/settingspanel'
   Fixtures = require './view/fixtures'
 
+  TestLoader = require './loader'
+  env = require './env'
+
 
   class TestRunner
     ###
@@ -21,6 +24,8 @@ define (require) ->
     views: {}
 
     constructor: (options = {}) ->
+      @loader = new TestLoader
+
       @config = do ->
         return options.config \
           if options.config instanceof TestConfiguration
@@ -31,31 +36,31 @@ define (require) ->
         return new TestConfiguration
 
       @settings = TestSettings.get()
+      @settings.set(coverage: true) if env.isHeadless()
+
+      @views.fixtures = new Fixtures el: '#fixtures', model: @settings
+
       @views.settingsPanel = new SettingsPanel model: @settings
       @views.settingsPanel.listenTo @settings,
         'change:coverage change:showFixtures': ->
           window.location.reload()
 
-      @views.fixtures = new Fixtures el: '#fixtures', model: @settings
+      @loadEngine(options)
 
-      coverageSupported = not window.mochaPhantomJS
-      coverageEnabled = coverageSupported and @settings.get('coverage')
+    loadEngine: (options) ->
+      ###
+      Lazy-load the coverage runner
 
-      @runnerLoaded = new $.Deferred
-      if coverageEnabled
-        # Lazy-load the coverage runner to prevent BlanketJS from being
-        # loaded even if we are not using the the CoverageRunner
-        require ['./runner/coverage'], (CoverageRunner) =>
-          @runner = new CoverageRunner _(options).pick('blanketOptions')
-          @runnerLoaded.resolve()
-      else
-        require ['./runner/mocha'], (MochaTestRunner) =>
-          @runner = new MochaTestRunner
-          @runnerLoaded.resolve()
+      This prevents BlanketJS from being loaded even if we are not using the
+      CoverageRunner.
+      ###
+      @engineLoaded = new $.Deferred
+      module = './engine/' + if @settings.get('coverage') then 'coverage' \
+          else 'mocha'
+      require [module], (Runner) =>
+        @engine = new Runner options
+        @engineLoaded.resolve()
 
     run: (tests = 'test/main') ->
-      $.when(@config.done, @runnerLoaded).then =>
-        if not @runner
-          console.error 'No test runner defined!'
-          return
-        @runner.run(tests)
+      $.when(@config.done, @engineLoaded).then =>
+        @loader.load(tests).done => @engine.run()

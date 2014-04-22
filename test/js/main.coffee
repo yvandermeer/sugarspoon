@@ -4,5 +4,7 @@ define ->
     'util/manager'
     'util/base'
 
+    'runner/loader'
+
     'meta/sanitycheck'
   ]

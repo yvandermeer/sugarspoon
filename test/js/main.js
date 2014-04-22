@@ -1,7 +1,7 @@
 (function() {
   define(function() {
     var module, _i, _len, _ref, _results;
-    _ref = ['util/systemundertest', 'util/manager', 'util/base', 'meta/sanitycheck'];
+    _ref = ['util/systemundertest', 'util/manager', 'util/base', 'runner/loader', 'meta/sanitycheck'];
     _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       module = _ref[_i];
