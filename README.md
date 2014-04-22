@@ -45,6 +45,12 @@ Usage
 Changelog
 ---------
 
+### 0.3.2
+
+* Add support for grunt-blanket-mocha for getting test coverage output on the command-line.
+* The `blanketOptions` passed to the `TestRunner` can now be a function, to allow for the grunt-blanket-mocha reporter option to be set only if running in PhantomJS (see the example directory).
+* Refactored the Gruntfile and TestRunner.
+
 ### 0.3.1
 
 * Moved many bower dependencies from dev-only dependencies to the normal "dependencies" list, since you will actually need them to use Sugarspoon.
