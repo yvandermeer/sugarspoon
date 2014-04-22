@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "mocha.js",
+  "sourceRoot": "",
+  "sources": [
+    "mocha.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,CAAA,CAAO,GAAP,CAAO,EAAC;CAGN,OAAA,OAAA;WAAM;CAEJ;;CAAA,EAAA,MAAK;CACF,EAAD,CAA0B,CAA1B,CAAO,QAAN,CAAD;CADF,MAAK;;CAAL;;CALG;CAAP,EAAO;CAAP"
+}

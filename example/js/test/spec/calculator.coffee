@@ -14,10 +14,12 @@ define (require) ->
     beforeEach ->
       @_.calculator = new @sys.Calculator
 
+
     describe 'adding one and one', ->
 
       it 'equals two', ->
         expect(@_.calculator.add(1, 1)).to.equal(2)
+
 
     describe 'subtracting five and two', ->
 

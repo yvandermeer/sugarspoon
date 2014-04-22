@@ -15,14 +15,17 @@ define (require) ->
 
   runner = new TestRunner
     config: new TestConfiguration
-    blanketOptions:
-      filter: ///
-        /app/
-      ///
-      antifilter: ///
-        (?:vendor|spec|src)/
-      ///
-      branchTracking: false
-      debug: true
+    blanketOptions: (env) ->
+      options =
+        filter: ///
+          /app/
+        ///
+        antifilter: ///
+          (?:vendor|spec|src)/
+        ///
+      if env.isHeadless()
+        options.reporter =
+            '../../vendor/grunt-blanket-mocha/support/grunt-reporter.js'
+      return options
 
   runner.run(tests)

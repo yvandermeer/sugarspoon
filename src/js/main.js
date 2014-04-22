@@ -1,12 +1,14 @@
 (function() {
   define(function(require) {
-    var $, Fixtures, SettingsPanel, TestConfiguration, TestRunner, TestSettings, _;
+    var $, Fixtures, SettingsPanel, TestConfiguration, TestLoader, TestRunner, TestSettings, env, _;
     _ = require('underscore');
     $ = require('jquery');
     TestConfiguration = require('./model/configuration');
     TestSettings = require('./model/settings');
     SettingsPanel = require('./view/settingspanel');
     Fixtures = require('./view/fixtures');
+    TestLoader = require('./loader');
+    env = require('./env');
     return TestRunner = (function() {
       /*
       The main Sugarspoon testrunner
@@ -19,11 +21,10 @@
       TestRunner.prototype.views = {};
 
       function TestRunner(options) {
-        var coverageEnabled, coverageSupported,
-          _this = this;
         if (options == null) {
           options = {};
         }
+        this.loader = new TestLoader;
         this.config = (function() {
           if (options.config instanceof TestConfiguration) {
             return options.config;
@@ -34,6 +35,15 @@
           return new TestConfiguration;
         })();
         this.settings = TestSettings.get();
+        if (env.isHeadless()) {
+          this.settings.set({
+            coverage: true
+          });
+        }
+        this.views.fixtures = new Fixtures({
+          el: '#fixtures',
+          model: this.settings
+        });
         this.views.settingsPanel = new SettingsPanel({
           model: this.settings
         });
@@ -42,37 +52,36 @@
             return window.location.reload();
           }
         });
-        this.views.fixtures = new Fixtures({
-          el: '#fixtures',
-          model: this.settings
-        });
-        coverageSupported = !window.mochaPhantomJS;
-        coverageEnabled = coverageSupported && this.settings.get('coverage');
-        this.runnerLoaded = new $.Deferred;
-        if (coverageEnabled) {
-          require(['./runner/coverage'], function(CoverageRunner) {
-            _this.runner = new CoverageRunner(_(options).pick('blanketOptions'));
-            return _this.runnerLoaded.resolve();
-          });
-        } else {
-          require(['./runner/mocha'], function(MochaTestRunner) {
-            _this.runner = new MochaTestRunner;
-            return _this.runnerLoaded.resolve();
-          });
-        }
+        this.loadEngine(options);
       }
+
+      TestRunner.prototype.loadEngine = function(options) {
+        /*
+        Lazy-load the coverage runner
+        
+        This prevents BlanketJS from being loaded even if we are not using the
+        CoverageRunner.
+        */
+
+        var module,
+          _this = this;
+        this.engineLoaded = new $.Deferred;
+        module = './engine/' + (this.settings.get('coverage') ? 'coverage' : 'mocha');
+        return require([module], function(Runner) {
+          _this.engine = new Runner(options);
+          return _this.engineLoaded.resolve();
+        });
+      };
 
       TestRunner.prototype.run = function(tests) {
         var _this = this;
         if (tests == null) {
           tests = 'test/main';
         }
-        return $.when(this.config.done, this.runnerLoaded).then(function() {
-          if (!_this.runner) {
-            console.error('No test runner defined!');
-            return;
-          }
-          return _this.runner.run(tests);
+        return $.when(this.config.done, this.engineLoaded).then(function() {
+          return _this.loader.load(tests).done(function() {
+            return _this.engine.run();
+          });
         });
       };
 
