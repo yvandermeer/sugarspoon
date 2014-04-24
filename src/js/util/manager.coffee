@@ -26,6 +26,7 @@ define (require) ->
       'util'
       'var'
     ]
+    autoResetSpies: true
 
     constructor: (@context) ->
       @_setup()
@@ -48,7 +49,7 @@ define (require) ->
 
     afterEach: ->
       delete @context._
-      @_resetAllSandboxSpies()
+      @resetSandboxSpies() if @autoResetSpies
 
     teardown: ->
       @_removeContextProperties()
@@ -84,7 +85,7 @@ define (require) ->
     _assignContextProperties: ->
       @context[property] = @[property] for property in @contextProperties
 
-    _resetAllSandboxSpies: ->
+    resetSandboxSpies: ->
       ###
       Resets the call count of all Sinon spies created through the sandbox
 

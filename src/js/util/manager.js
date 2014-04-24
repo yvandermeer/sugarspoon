@@ -20,6 +20,8 @@
 
       TestSuiteManager.prototype.namespaces = ['stub', 'util', 'var'];
 
+      TestSuiteManager.prototype.autoResetSpies = true;
+
       function TestSuiteManager(context) {
         this.context = context;
         this._setup();
@@ -45,7 +47,9 @@
 
       TestSuiteManager.prototype.afterEach = function() {
         delete this.context._;
-        return this._resetAllSandboxSpies();
+        if (this.autoResetSpies) {
+          return this.resetSandboxSpies();
+        }
       };
 
       TestSuiteManager.prototype.teardown = function() {
@@ -98,7 +102,7 @@
         return _results;
       };
 
-      TestSuiteManager.prototype._resetAllSandboxSpies = function() {
+      TestSuiteManager.prototype.resetSandboxSpies = function() {
         /*
         Resets the call count of all Sinon spies created through the sandbox
         
