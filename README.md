@@ -45,6 +45,10 @@ Usage
 Changelog
 ---------
 
+### 0.3.3
+
+* `TestManager` now has an `autoResetSpies` property (defaults to true). If set to false, you can reset the Sinon spies (created through the `@sandbox`) yourself using `@testManager.resetSandboxSpies()`.
+
 ### 0.3.2
 
 * Add support for [grunt-blanket-mocha][grunt-blanket-mocha] for getting test coverage output on the command-line.
