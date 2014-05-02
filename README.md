@@ -45,6 +45,11 @@ Usage
 Changelog
 ---------
 
+### 0.3.4-dev
+
+* ...
+
+
 ### 0.3.3
 
 * `TestManager` now has an `autoResetSpies` property (defaults to true). If set to false, you can reset the Sinon spies (created through the `@sandbox`) yourself using `@testManager.resetSandboxSpies()`.
