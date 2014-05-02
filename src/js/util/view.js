@@ -27,7 +27,7 @@
 
       ViewTestManager.prototype.setClass = function(viewClass) {
         this.viewClass = viewClass;
-        return this.sandbox.spy(this.viewClass.prototype, 'render');
+        return this._spyViewMethodIfDefined('render');
       };
 
       ViewTestManager.prototype.create = function(options) {
@@ -64,6 +64,13 @@
           Fixtures.removeView(view);
         }
         return this.activeViews.length = 0;
+      };
+
+      ViewTestManager.prototype._spyViewMethodIfDefined = function(methodName) {
+        if (!_(this.viewClass.prototype[methodName]).isFunction()) {
+          return;
+        }
+        return this.sandbox.spy(this.viewClass.prototype, methodName);
       };
 
       return ViewTestManager;

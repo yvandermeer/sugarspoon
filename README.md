@@ -47,6 +47,7 @@ Changelog
 
 ### 0.3.4-dev
 
+* Fixed error in `ViewTestManager.setClass()` if no "render" method is defined on your class.
 * ...
 
 

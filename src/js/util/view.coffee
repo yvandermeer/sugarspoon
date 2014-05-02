@@ -20,7 +20,7 @@ define (require) ->
       {sandbox: @sandbox} = options
 
     setClass: (@viewClass) ->
-      @sandbox.spy(@viewClass::, 'render')
+      @_spyViewMethodIfDefined('render')
 
     create: (options = {}) =>
       @setClass(options.class) if options.class
@@ -37,6 +37,10 @@ define (require) ->
     removeActiveViews: ->
       Fixtures.removeView(view) for view in @activeViews
       @activeViews.length = 0
+
+    _spyViewMethodIfDefined: (methodName) ->
+      return if not _(@viewClass::[methodName]).isFunction()
+      @sandbox.spy(@viewClass::, methodName)
 
 
   viewTest = ->
