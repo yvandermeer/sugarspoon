@@ -45,11 +45,11 @@ Usage
 Changelog
 ---------
 
-### 0.3.4-dev
+### 0.3.4
 
 * Fixed error in `ViewTestManager.setClass()` if no "render" method is defined on your class.
 * Fixed error (usually thrown from `afterEach()`) if view class has no "remove" method.
-* ...
+* Expanded the functionality of `@util.view.create()`: if no "el" is specified, it is automatically created as first child in the Fixtures container div. If it is specified, but false (e.g. `{el: null}`), it will rely the Backbone View to create the view element itself, after which it will append the view.$el to the Fixtures container div.
 
 
 ### 0.3.3
