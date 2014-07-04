@@ -1,4 +1,5 @@
 define (require) ->
+  _ = require 'underscore'
   $ = require 'jquery'
   Backbone = require 'backbone'
 
@@ -16,7 +17,11 @@ define (require) ->
       @get().createElement(arguments...)
 
     @removeView: (view) ->
-      view?.remove() unless Settings.get().get('showFixtures')
+      return if not view?
+      if not _(view.remove).isFunction()
+        throw new Error('View instance is missing a remove method, ' +
+            'is it a proper Backbone View?')
+      view.remove() unless Settings.get().get('showFixtures')
 
     constructor: ->
       Fixtures._instance = this

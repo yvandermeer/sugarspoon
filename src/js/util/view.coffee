@@ -20,14 +20,27 @@ define (require) ->
       {sandbox: @sandbox} = options
 
     setClass: (@viewClass) ->
-      @sandbox.spy(@viewClass::, 'render')
+      @_spyViewMethodIfDefined('render')
 
     create: (options = {}) =>
       @setClass(options.class) if options.class
       throw Error('No viewClass defined in ViewTestManager') if not @viewClass
-      $el = @fixtures.createElement()
-      $el.html(options.html) if options.html
+
+      elementSpecified = 'el' of options
+      elementCreatedByView = elementSpecified and not options.el
+
+      # If no view element has been specified explicitly, we will create it
+      if not elementSpecified
+        $el = @Fixtures.createElement()
+        $el.html(options.html) if options.html
+
       view = new @viewClass _({el: $el}).extend(_(options).omit('html'))
+
+      # Manually append the element to the Fixtures container if it was created
+      # dynamically by the view itself
+      if elementCreatedByView
+        view.$el.appendTo(@fixtures.get().$el)
+
       @exposeToContext(view)
       @activeViews.push(view)
 
@@ -37,6 +50,10 @@ define (require) ->
     removeActiveViews: ->
       Fixtures.removeView(view) for view in @activeViews
       @activeViews.length = 0
+
+    _spyViewMethodIfDefined: (methodName) ->
+      return if not _(@viewClass::[methodName]).isFunction()
+      @sandbox.spy(@viewClass::, methodName)
 
 
   viewTest = ->

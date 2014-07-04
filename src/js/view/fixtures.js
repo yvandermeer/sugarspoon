@@ -3,7 +3,8 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   define(function(require) {
-    var $, Backbone, Fixtures, Settings;
+    var $, Backbone, Fixtures, Settings, _;
+    _ = require('underscore');
     $ = require('jquery');
     Backbone = require('backbone');
     Settings = require('../model/settings');
@@ -24,8 +25,14 @@
       };
 
       Fixtures.removeView = function(view) {
+        if (view == null) {
+          return;
+        }
+        if (!_(view.remove).isFunction()) {
+          throw new Error('View instance is missing a remove method, ' + 'is it a proper Backbone View?');
+        }
         if (!Settings.get().get('showFixtures')) {
-          return view != null ? view.remove() : void 0;
+          return view.remove();
         }
       };
 

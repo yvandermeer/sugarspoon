@@ -27,11 +27,11 @@
 
       ViewTestManager.prototype.setClass = function(viewClass) {
         this.viewClass = viewClass;
-        return this.sandbox.spy(this.viewClass.prototype, 'render');
+        return this._spyViewMethodIfDefined('render');
       };
 
       ViewTestManager.prototype.create = function(options) {
-        var $el, view;
+        var $el, elementCreatedByView, elementSpecified, view;
         if (options == null) {
           options = {};
         }
@@ -41,13 +41,20 @@
         if (!this.viewClass) {
           throw Error('No viewClass defined in ViewTestManager');
         }
-        $el = this.fixtures.createElement();
-        if (options.html) {
-          $el.html(options.html);
+        elementSpecified = 'el' in options;
+        elementCreatedByView = elementSpecified && !options.el;
+        if (!elementSpecified) {
+          $el = this.Fixtures.createElement();
+          if (options.html) {
+            $el.html(options.html);
+          }
         }
         view = new this.viewClass(_({
           el: $el
         }).extend(_(options).omit('html')));
+        if (elementCreatedByView) {
+          view.$el.appendTo(this.fixtures.get().$el);
+        }
         this.exposeToContext(view);
         return this.activeViews.push(view);
       };
@@ -64,6 +71,13 @@
           Fixtures.removeView(view);
         }
         return this.activeViews.length = 0;
+      };
+
+      ViewTestManager.prototype._spyViewMethodIfDefined = function(methodName) {
+        if (!_(this.viewClass.prototype[methodName]).isFunction()) {
+          return;
+        }
+        return this.sandbox.spy(this.viewClass.prototype, methodName);
       };
 
       return ViewTestManager;
