@@ -44,7 +44,7 @@
         elementSpecified = 'el' in options;
         elementCreatedByView = elementSpecified && !options.el;
         if (!elementSpecified) {
-          $el = this.Fixtures.createElement();
+          $el = this.fixtures.createElement();
           if (options.html) {
             $el.html(options.html);
           }

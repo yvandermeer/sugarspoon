@@ -45,6 +45,10 @@ Usage
 Changelog
 ---------
 
+### 0.3.6
+
+* ... and actually compiled v0.3.5 to JavaScript. It must be Friday.
+
 ### 0.3.5
 
 * Fix typo that broke `@util.view.create()`
