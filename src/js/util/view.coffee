@@ -31,7 +31,7 @@ define (require) ->
 
       # If no view element has been specified explicitly, we will create it
       if not elementSpecified
-        $el = @Fixtures.createElement()
+        $el = @fixtures.createElement()
         $el.html(options.html) if options.html
 
       view = new @viewClass _({el: $el}).extend(_(options).omit('html'))

@@ -45,6 +45,10 @@ Usage
 Changelog
 ---------
 
+### 0.3.5
+
+* Fix typo that broke `@util.view.create()`
+
 ### 0.3.4
 
 * Fixed error in `ViewTestManager.setClass()` if no "render" method is defined on your class.
