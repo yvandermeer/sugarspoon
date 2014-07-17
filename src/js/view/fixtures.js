@@ -25,15 +25,16 @@
       };
 
       Fixtures.removeView = function(view) {
-        if (view == null) {
+        var $subviewRoot;
+        if ((view == null) || Settings.get().get('showFixtures')) {
           return;
         }
         if (!_(view.remove).isFunction()) {
           throw new Error('View instance is missing a remove method, ' + 'is it a proper Backbone View?');
         }
-        if (!Settings.get().get('showFixtures')) {
-          return view.remove();
-        }
+        $subviewRoot = view.$el.parentsUntil(this.get().$el).last();
+        view.remove();
+        return $subviewRoot.remove();
       };
 
       function Fixtures() {

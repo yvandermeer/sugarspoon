@@ -48,6 +48,13 @@
           if (options.html) {
             $el.html(options.html);
           }
+          if (options.root) {
+            if (options.root instanceof $) {
+              $el = options.root;
+            } else if (_.isString(options.root)) {
+              $el = $el.find(options.root);
+            }
+          }
         }
         view = new this.viewClass(_({
           el: $el

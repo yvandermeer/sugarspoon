@@ -17,11 +17,13 @@ define (require) ->
       @get().createElement(arguments...)
 
     @removeView: (view) ->
-      return if not view?
+      return if (not view?) or Settings.get().get('showFixtures')
       if not _(view.remove).isFunction()
         throw new Error('View instance is missing a remove method, ' +
             'is it a proper Backbone View?')
-      view.remove() unless Settings.get().get('showFixtures')
+      $subviewRoot = view.$el.parentsUntil(@get().$el).last()
+      view.remove()
+      $subviewRoot.remove()
 
     constructor: ->
       Fixtures._instance = this
