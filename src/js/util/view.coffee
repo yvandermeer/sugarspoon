@@ -34,6 +34,13 @@ define (require) ->
         $el = @fixtures.createElement()
         $el.html(options.html) if options.html
 
+        # Subview support: bind to nested element
+        if options.root
+          if options.root instanceof $
+            $el = options.root
+          else if _.isString(options.root)
+            $el = $el.find(options.root)
+
       view = new @viewClass _({el: $el}).extend(_(options).omit('html'))
 
       # Manually append the element to the Fixtures container if it was created

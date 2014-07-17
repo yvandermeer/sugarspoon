@@ -45,6 +45,10 @@ Usage
 Changelog
 ---------
 
+### 0.4-alpha.1
+
+* The `@utils.view.create()` function exposed by `viewTest()` now supports a "root" option (takes a jQuery selector string) to allow binding to a nested view element (when combined with the "html" option), while still getting the entire HTML structure to be cleaned up automatically in the `after()`.
+
 ### 0.3.6
 
 * ... and actually compiled v0.3.5 to JavaScript. It must be Friday.
