@@ -149,7 +149,7 @@ Finally, recognizing that the shared testing context in Mocha tests can lead to 
 [etb]: https://github.com/easytobook/ "Easytobook.com"
 [gj]: http://goeiejongens.nl/ "Goeie Jongens"
 [grunt-mocha]: https://github.com/kmiyashiro/grunt-mocha#amd
-[mocha]: http://visionmedia.github.io/mocha/
+[mocha]: http://mochajs.org/
 [mochablanket]: https://github.com/alex-seville/blanket/blob/master/src/adapters/mocha-blanket.js
 [grunt-blanket-mocha]: https://github.com/ModelN/grunt-blanket-mocha
 [requirejs]: http://requirejs.org
